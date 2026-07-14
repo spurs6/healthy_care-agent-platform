@@ -1,0 +1,20 @@
+[
+  {
+    "query": "近年来研究发现口腔菌群失调与慢性肾脏病（CKD）存在密切关联，作为临床医生，请根据现有研究证据阐述口腔菌群在CKD中的可能作用机制及其临床意义。",
+    "ground_truth": "口腔菌群作为人体微生物组的重要组成部分，在维持健康中起主要作用。研究表明口腔菌群失调与CKD存在密切关联，可能通过影响肾功能损害导致CKD持续复发，最终发展为不可逆的肾衰竭和严重全身并发症。了解CKD与口腔菌群的相关性具有重要临床意义，可为CKD的防治提供新思路。",
+    "source": "[Research Progress in the Correlation Between Oral Microbiota and Chronic Kidney Disease]",
+    "expected_chunks": null
+  },
+  {
+    "query": "对于同时患有慢性肾脏病（CKD）和2型糖尿病（T2DM）的患者，目前是否有足够科学严谨的证据支持常规推荐教育项目以改善治疗依从性？",
+    "ground_truth": "根据现有系统评价（证据等级1A），虽然强化教育和行为咨询可能改善依从性，但目前尚缺乏足够科学严谨的证据支持对CKD合并糖尿病患者常规推荐教育项目。该结论基于对Cochrane肾脏与移植注册库截至2024年7月19日数据的分析。",
+    "source": "Education programmes for people with chronic kidney disease and diabetes.",
+    "expected_chunks": null
+  },
+  {
+    "query": "根据2011年血管外科学会指南更新后的最新建议，对于颈动脉分叉部狭窄患者，在预防卒中方面应如何选择治疗方案？请比较颈动脉内膜切除术(CEA)、颈动脉支架植入术(CAS)和药物治疗的适用情况。",
+    "ground_truth": "根据血管外科学会最新指南，对于颈动脉分叉部狭窄患者的卒中预防：1)CEA和CAS的比较基于多项随机对照试验和系统评价数据；2)自2011年指南发布后，CEA与CAS的比较研究有了新证据；3)药物治疗的重要性被重新强调。具体治疗方案选择需结合患者个体情况和最新临床证据。",
+    "source": "Society for Vascular Surgery clinical practice guidelines for management of extracranial cerebrovascular disease.",
+    "expected_chunks": null
+  }
+]

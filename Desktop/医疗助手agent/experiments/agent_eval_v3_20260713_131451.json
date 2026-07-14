@@ -1,0 +1,872 @@
+{
+  "test_set": "clinical_evidence_test_v3.json",
+  "total_questions": 15,
+  "pass_rate": 0.8,
+  "avg_scores": {
+    "completeness": 0.689,
+    "evidence_hit": 0.667,
+    "guideline_ref": 0.74,
+    "drug_accuracy": 0.7,
+    "tool_quality": 1.0,
+    "overall": 0.728
+  },
+  "evidence_rate": 1.0,
+  "avg_latency_ms": 64465,
+  "error_count": 0,
+  "results": [
+    {
+      "query": "高血压合并糖尿病的患者首选什么降压药？",
+      "ground_truth": "高血压合并糖尿病患者首选ACEI（普利类）或ARB（沙坦类）降压药。这两类药物不仅能有效降压，还能减少尿蛋白，保护肾脏功能，延缓糖尿病肾病进展。ACEI/ARB被多项指南推荐为糖尿病合并高血压的一线用药。目标血压应控制在130/80mmHg以下。",
+      "source": "中国高血压防治指南2024 + 中国2型糖尿病防治指南",
+      "answer": "根据提供的临床证据片段，针对高血压合并糖尿病患者的降压药物选择，核心诊疗结论如下：\n\n① **核心诊疗结论**  \n高血压合并糖尿病患者应首选ACEI（血管紧张素转换酶抑制剂）或ARB（血管紧张素受体拮抗剂）类药物，因其具有减少蛋白尿和延缓肾病进展的作用，同时需将血压控制目标设定为<130/80 mmHg。\n\n② **分点说明与引用依据**  \n1. **降压药物选择**：  \n   - 优先推荐ACEI或ARB（Ⅰ类推荐，B级证据），尤其适用于糖尿病合并高血压患者，因其可显著减少蛋白尿并保护肾功能[doc_cn_guide_0008][doc_cn_guide_0003]。  \n   - 若需联合治疗（如血压≥160/100 mmHg或未达标），可联合CCB（钙通道阻滞剂）或噻嗪类利尿剂，但禁止ACEI与ARB联用[doc_cn_guide_0003]。  \n\n2. **血压控制目标**：  \n   - 目标值为<130/80 mmHg（Ⅰ类推荐，B级证据），强调严格血压管理以降低大血管及微血管并发症风险[doc_cn_guide_0008]。  \n\n3. **综合管理策略**：  ",
+      "tool_calls": [
+        {
+          "tool": "query_classifier",
+          "args": {
+            "query": "高血压合并糖尿病的患者首选什么降压药？"
+          },
+          "result_preview": "问题分类为：treatment，识别疾病：高血压, 糖尿病"
+        },
+        {
+          "tool": "local_search",
+          "args": {
+            "query": "高血压合并糖尿病 首选降压药"
+          },
+          "result_preview": "检索到8条证据，最高相似度0.7891"
+        },
+        {
+          "tool": "evidence_evaluator",
+          "args": {
+            "evidence_summary": "检索到8条证据，最高相似度0.7891，包括中国高血压临床实践指南2024和中国2型糖尿病防治指南2020的推荐内容。",
+            "user_query": "高血压合并糖尿病的患者首选什么降压药？"
+          },
+          "result_preview": "证据不足，建议继续检索或使用external_search补充"
+        },
+        {
+          "tool": "external_search",
+          "args": {
+            "query": "hypertension with diabetes first-line antihypertensive drug"
+          },
+          "result_preview": "外部检索到10篇文献"
+        },
+        {
+          "tool": "evidence_evaluator",
+          "args": {
+            "evidence_summary": "检索到8条本地证据和10条外部文献，包括中国高血压临床实践指南2024和中国2型糖尿病防治指南2020的推荐内容，以及PubMed和EuropePMC的最新文献。",
+            "user_query": "高血压合并糖尿病的患者首选什么降压药？"
+          },
+          "result_preview": "证据不足，建议继续检索或使用external_search补充"
+        }
+      ],
+      "chunks_count": 3,
+      "has_evidence": true,
+      "error": null,
+      "latency_ms": 85989,
+      "scores": {
+        "completeness": 0.4,
+        "evidence_hit": 0.5,
+        "guideline_ref": 0.75,
+        "drug_accuracy": 1.0,
+        "tool_quality": 1.0,
+        "overall": 0.64
+      }
+    },
+    {
+      "query": "2型糖尿病患者的一线降糖药物是什么？",
+      "ground_truth": "2型糖尿病的一线降糖药物是二甲双胍。若无禁忌证，二甲双胍应作为2型糖尿病的初始首选药物，且应一直保留在治疗方案中。对于合并ASCVD或高危心血管风险的患者，可考虑联合SGLT2抑制剂或GLP-1受体激动剂。",
+      "source": "中国2型糖尿病防治指南2024 + ADA糖尿病医学诊疗标准",
+      "answer": "根据《中国2型糖尿病防治指南2020》的1A级证据，2型糖尿病患者的一线降糖药物推荐如下：\n\n① **核心诊疗结论**  \n如无禁忌证，**二甲双胍**应作为2型糖尿病的首选起始用药和联合用药基础（Ⅰ类推荐，A级证据）。\n\n② **分点说明**  \n1. **疗效与安全性**：二甲双胍具有良好的降糖效果、心血管获益证据，不增加体重且单独使用不引起低血糖[doc_cn_guide_0006]。  \n2. **剂量与调整**：推荐起始剂量500mg每日2次，可逐渐增至2000mg/日；eGFR<45 mL/min/1.73m²时需减量，<30时禁用[doc_cn_guide_0006]。  \n3. **注意事项**：常见不良反应为胃肠道反应（餐中服药可减轻），长期使用需监测维生素B12水平[doc_cn_guide_0006]。  \n\n③ **完整引用来源**  \n1. [doc_cn_guide_0006] 中国2型糖尿病防治指南2020 - 二甲双胍一线治疗推荐 | 证据等级：1A  \n2. [doc_cn_guide_0007] 中国2型糖尿病防治指南2020 - 心血管高危患者降糖",
+      "tool_calls": [
+        {
+          "tool": "query_classifier",
+          "args": {
+            "query": "2型糖尿病患者的一线降糖药物是什么？"
+          },
+          "result_preview": "问题分类为：treatment，识别疾病：糖尿病"
+        },
+        {
+          "tool": "local_search",
+          "args": {
+            "query": "2型糖尿病 一线降糖药物"
+          },
+          "result_preview": "检索到8条证据，最高相似度0.8082"
+        },
+        {
+          "tool": "evidence_evaluator",
+          "args": {
+            "evidence_summary": "检索到8条证据，最高相似度0.8082，证据来源包括中国2型糖尿病防治指南2020，涵盖一线降糖药物推荐，证据等级为1A。",
+            "user_query": "2型糖尿病患者的一线降糖药物是什么？"
+          },
+          "result_preview": "证据不足，建议继续检索或使用external_search补充"
+        },
+        {
+          "tool": "external_search",
+          "args": {
+            "query": "first-line treatment for type 2 diabetes"
+          },
+          "result_preview": "外部检索到10篇文献"
+        },
+        {
+          "tool": "evidence_evaluator",
+          "args": {
+            "evidence_summary": "检索到8条本地证据和10条外部证据，最高相似度0.8082，证据来源包括中国2型糖尿病防治指南2020和PubMed最新文献，涵盖一线降糖药物推荐，证据等级为1A。",
+            "user_query": "2型糖尿病患者的一线降糖药物是什么？"
+          },
+          "result_preview": "证据不足，建议继续检索或使用external_search补充"
+        }
+      ],
+      "chunks_count": 3,
+      "has_evidence": true,
+      "error": null,
+      "latency_ms": 48138,
+      "scores": {
+        "completeness": 1.0,
+        "evidence_hit": 0.5,
+        "guideline_ref": 0.75,
+        "drug_accuracy": 1.0,
+        "tool_quality": 1.0,
+        "overall": 0.85
+      }
+    },
+    {
+      "query": "高血脂患者LDL-C的目标值是多少？",
+      "ground_truth": "高血脂患者的LDL-C目标值根据心血管风险分层确定：低危人群<3.4mmol/L，中危人群<3.4mmol/L，高危人群<2.6mmol/L，极高危人群<1.8mmol/L，超高危人群<1.4mmol/L。对于急性冠脉综合征等极高危患者，部分指南建议LDL-C<1.4mmol/L且较基线降低≥50%。",
+      "source": "中国血脂管理指南2024 + ESC/EAS血脂异常管理指南",
+      "answer": "根据检索到的临床证据，高血脂患者LDL-C目标值需根据心血管风险分层确定，以下是核心诊疗结论及分点说明：\n\n### 核心诊疗结论\n高血脂患者LDL-C目标值需个体化设定，主要依据心血管风险分层（极高危、高危、中低危）和是否合并特定疾病（如ASCVD、糖尿病等）。\n\n### 分点说明\n1. **极高危人群**：LDL-C目标值<1.8 mmol/L，且较基线降低幅度应≥50%。若为ASCVD患者且LDL-C达标后仍复发事件，可考虑进一步降至<1.4 mmol/L[doc_cn_guide_0009]。  \n   - 极高危人群包括：缺血性脑卒中、冠心病、外周动脉疾病、糖尿病合并靶器官损害等[doc_cn_guide_0009]。\n\n2. **高危人群**：LDL-C目标值<2.6 mmol/L[doc_cn_guide_0009]。  \n   - 高危人群示例：无ASCVD但年龄>40岁的糖尿病患者[doc_cn_guide_0008]。\n\n3. **中低危人群**：LDL-C目标值<3.4 mmol/L[doc_cn_guide_0009]。\n\n4. **糖尿病患者特殊推荐**：  \n",
+      "tool_calls": [
+        {
+          "tool": "query_classifier",
+          "args": {
+            "query": "高血脂患者LDL-C的目标值是多少？"
+          },
+          "result_preview": "问题分类为：treatment，识别疾病：高血脂"
+        },
+        {
+          "tool": "local_search",
+          "args": {
+            "query": "高血脂患者LDL-C的目标值"
+          },
+          "result_preview": "检索到8条证据，最高相似度0.9203"
+        },
+        {
+          "tool": "evidence_evaluator",
+          "args": {
+            "evidence_summary": "检索到8条证据，最高相似度0.9203，证据来源为中国成人血脂异常防治指南2023，推荐LDL-C目标值分层：极高危人群<1.8 mmol/L，高危人群<2.6 mmol/L，中低危人群<3.4 mmol/L（Ⅰ类推荐，A级证据）。",
+            "user_query": "高血脂患者LDL-C的目标值是多少？"
+          },
+          "result_preview": "证据不足，建议继续检索或使用external_search补充"
+        },
+        {
+          "tool": "external_search",
+          "args": {
+            "query": "高血脂患者LDL-C的目标值"
+          },
+          "result_preview": "外部检索到10篇文献"
+        },
+        {
+          "tool": "evidence_evaluator",
+          "args": {
+            "evidence_summary": "本地检索到8条证据，最高相似度0.9203，证据来源为中国成人血脂异常防治指南2023，推荐LDL-C目标值分层：极高危人群<1.8 mmol/L，高危人群<2.6 mmol/L，中低危人群<3.4 mmol/L（Ⅰ类推荐，A级证据）。外部检索到10篇文献，其中3篇为临床指南或Meta分析，进一步支持LDL-C目标值的分层管理。",
+            "user_query": "高血脂患者LDL-C的目标值是多少？"
+          },
+          "result_preview": "证据充分，可以生成答案"
+        }
+      ],
+      "chunks_count": 3,
+      "has_evidence": true,
+      "error": null,
+      "latency_ms": 58885,
+      "scores": {
+        "completeness": 0.889,
+        "evidence_hit": 0.5,
+        "guideline_ref": 0.75,
+        "drug_accuracy": 0.5,
+        "tool_quality": 1.0,
+        "overall": 0.736
+      }
+    },
+    {
+      "query": "心房颤动患者如何进行抗凝治疗？",
+      "ground_truth": "心房颤动患者抗凝治疗应根据CHA2DS2-VASc评分评估卒中风险。评分≥2分的男性或≥3分的女性患者推荐使用口服抗凝药。首选直接口服抗凝药（DOACs，如达比加群、利伐沙班、阿哌沙班），华法林适用于中重度二尖瓣狭窄或机械瓣置换术后患者。评分0分（男性）或1分（女性）可不予抗凝。",
+      "source": "中国心房颤动防治指南2024 + ESC房颤管理指南",
+      "answer": "# 心房颤动患者的抗凝治疗建议\n\n## 核心诊疗结论\n根据中国最新临床指南，心房颤动患者的抗凝治疗应基于CHA2DS2-VASc评分系统评估卒中风险，对于高风险患者(男性≥2分或女性≥3分)推荐长期口服抗凝治疗，优先选择新型口服抗凝药(NOAC)。具体方案需根据患者个体情况(如瓣膜状况、出血风险等)制定。\n\n## 详细建议\n\n1. **卒中风险评估与抗凝指征**\n   - 所有非瓣膜性房颤患者应使用CHA2DS2-VASc评分评估卒中风险[doc_cn_guide_0026][doc_cn_guide_0027]\n   - 评分≥2分(男性)或≥3分(女性)需启动口服抗凝治疗（Ⅰ类推荐，A级证据）[doc_cn_guide_0020][doc_cn_guide_0027]\n   - 评分1分(男性)或2分(女性)可根据个体情况考虑抗凝[doc_cn_guide_0026]\n\n2. **抗凝药物选择**\n   - 优先推荐新型口服抗凝药(NOAC)：达比加群150mg bid、利伐沙班20mg qd、阿哌沙班5mg bid、艾多沙班60mg qd（Ⅰ类推荐，A级证据）[doc_cn_gu",
+      "tool_calls": [
+        {
+          "tool": "query_classifier",
+          "args": {
+            "query": "心房颤动患者如何进行抗凝治疗？"
+          },
+          "result_preview": "问题分类为：treatment，识别疾病：心房颤动"
+        },
+        {
+          "tool": "local_search",
+          "args": {
+            "query": "心房颤动 抗凝治疗"
+          },
+          "result_preview": "检索到8条证据，最高相似度0.8327"
+        },
+        {
+          "tool": "evidence_evaluator",
+          "args": {
+            "evidence_summary": "检索到8条证据，最高相似度0.8327，证据来源包括中文临床指南，涵盖心房颤动抗凝治疗的推荐，包括CHA2DS2-VASc评分、新型口服抗凝药(NOAC)和华法林的使用建议。",
+            "user_query": "心房颤动患者如何进行抗凝治疗？"
+          },
+          "result_preview": "证据不足，建议继续检索或使用external_search补充"
+        },
+        {
+          "tool": "external_search",
+          "args": {
+            "query": "atrial fibrillation anticoagulation treatment guidelines"
+          },
+          "result_preview": "外部检索到10篇文献"
+        },
+        {
+          "tool": "evidence_evaluator",
+          "args": {
+            "evidence_summary": "检索到8条本地证据和10条外部证据，包括2023 ACC/AHA/ACCP/HRS指南等最新临床指南，涵盖心房颤动抗凝治疗的推荐，包括CHA2DS2-VASc评分、新型口服抗凝药(NOAC)和华法林的使用建议。",
+            "user_query": "心房颤动患者如何进行抗凝治疗？"
+          },
+          "result_preview": "证据不足，建议继续检索或使用external_search补充"
+        }
+      ],
+      "chunks_count": 3,
+      "has_evidence": true,
+      "error": null,
+      "latency_ms": 78188,
+      "scores": {
+        "completeness": 1.0,
+        "evidence_hit": 0.5,
+        "guideline_ref": 0.75,
+        "drug_accuracy": 1.0,
+        "tool_quality": 1.0,
+        "overall": 0.85
+      }
+    },
+    {
+      "query": "急性心肌梗死的诊断标准是什么？",
+      "ground_truth": "急性心肌梗死的诊断需满足以下标准中的至少2项：1)缺血性胸痛病史；2)心电图的动态变化（ST段抬高或压低、病理性Q波）；3)心肌坏死标志物（cTnI/cTnT）升高和/或回落。目前以高敏肌钙蛋白（hs-cTn）作为首选生物标志物，其升高超过99百分位参考上限是诊断核心。根据心电图表现分为STEMI（ST段抬高型）和NSTEMI（非ST段抬高型）。",
+      "source": "ESC急性冠脉综合征管理指南 + 中国急性ST段抬高型心肌梗死诊断和治疗指南",
+      "answer": "【暂无匹配的权威临床循证证据，无法给出诊疗建议】\n\n注：当前提供的证据片段中未包含急性心肌梗死诊断标准的明确描述（如WHO标准、第四版全球心肌梗死统一定义等）。建议补充检索《中国急性ST段抬高型心肌梗死诊断和治疗指南》或《欧洲心脏病学会急性心肌梗死管理指南》等权威文献。\n\n=== 现有相关证据片段提示 ===\n1. 外部实时检索到的[doc_ext_pubmed_40014670]提及2025年ACS管理指南更新，但未具体描述诊断标准\n2. [doc_ext_pubmed_39818676]讨论心电图在心肌梗死中的作用，但未提供完整诊断标准\n\n完整引用来源附录：\n[doc_ext_pubmed_40014670] 2025 ACC/AHA/ACEP/NAEMSP/SCAI Guideline for the Management of Patients With Acute Coronary Syndromes（证据等级1A）\n[doc_ext_pubmed_39818676] ECG Patterns of Occlusion Myocardial Infarction: A Nar",
+      "tool_calls": [
+        {
+          "tool": "query_classifier",
+          "args": {
+            "query": "急性心肌梗死的诊断标准是什么？"
+          },
+          "result_preview": "问题分类为：diagnosis，识别疾病：无"
+        },
+        {
+          "tool": "local_search",
+          "args": {
+            "query": "急性心肌梗死的诊断标准"
+          },
+          "result_preview": "检索到8条证据，最高相似度0.6730"
+        },
+        {
+          "tool": "external_search",
+          "args": {
+            "query": "acute myocardial infarction diagnostic criteria"
+          },
+          "result_preview": "外部检索到10篇文献"
+        },
+        {
+          "tool": "evidence_evaluator",
+          "args": {
+            "evidence_summary": "本地检索到8条证据，最高相似度0.6730，但未直接回答急性心肌梗死的诊断标准。外部检索补充了10篇文献，包括2025年ACC/AHA指南等权威文献，涉及急性心肌梗死的诊断标准。",
+            "user_query": "急性心肌梗死的诊断标准是什么？"
+          },
+          "result_preview": "证据不足，建议继续检索或使用external_search补充"
+        },
+        {
+          "tool": "external_search",
+          "args": {
+            "query": "acute myocardial infarction diagnostic criteria 2025"
+          },
+          "result_preview": "外部检索到10篇文献"
+        }
+      ],
+      "chunks_count": 3,
+      "has_evidence": true,
+      "error": null,
+      "latency_ms": 52768,
+      "scores": {
+        "completeness": 1.0,
+        "evidence_hit": 1.0,
+        "guideline_ref": 0.6,
+        "drug_accuracy": 0.5,
+        "tool_quality": 1.0,
+        "overall": 0.845
+      }
+    },
+    {
+      "query": "他汀类药物的主要不良反应有哪些？",
+      "ground_truth": "他汀类药物的主要不良反应包括：1)肌肉相关不良反应（肌痛、肌炎、横纹肌溶解，发生率约5-10%）；2)肝功能异常（转氨酶升高，发生率约1-3%）；3)血糖升高和新发糖尿病风险增加；4)胃肠道反应。用药期间应定期监测肝功能（ALT/AST）和肌酸激酶（CK），若CK超过正常上限10倍应立即停药。",
+      "source": "中国血脂管理指南2024 + FDA他汀类药物安全警示",
+      "answer": "根据检索到的临床证据，关于他汀类药物的主要不良反应，核心诊疗结论如下：\n\n### 核心诊疗结论  \n他汀类药物的主要不良反应包括肌肉相关不良反应（如肌痛、肌炎、横纹肌溶解等）和肝功能异常，多数为一过性且可逆。中国人群对高强度他汀耐受性较差，需特别注意监测。\n\n### 分点说明  \n1. **肌肉相关不良反应**  \n   - 他汀相关肌肉不良反应约占所有不良事件的三分之二，表现为肌痛、肌无力、肌炎，罕见但严重的横纹肌溶解（证据等级：3B）[doc_ext_pubmed_35955495][doc_ext_pubmed_34769118]。  \n   - 中国指南指出，此类反应多为一过性，停药后可恢复（证据等级：1A）[doc_cn_guide_0010]。  \n   - 联用贝特类药物（如非诺贝特）时需避免吉非贝齐，并加强肌酶监测（证据等级：1A）[doc_cn_guide_0012]。  \n\n2. **肝功能异常**  \n   - 他汀治疗需定期监测肝酶（如ALT/AST），若升高超过3倍正常值上限应考虑减量或停药（证据等级：1A）[doc_cn_guide_0010][doc_cn",
+      "tool_calls": [
+        {
+          "tool": "query_classifier",
+          "args": {
+            "query": "他汀类药物的主要不良反应有哪些？"
+          },
+          "result_preview": "问题分类为：treatment，识别疾病：无"
+        },
+        {
+          "tool": "local_search",
+          "args": {
+            "query": "他汀类药物的主要不良反应"
+          },
+          "result_preview": "检索到8条证据，最高相似度0.7502"
+        },
+        {
+          "tool": "evidence_evaluator",
+          "args": {
+            "evidence_summary": "检索到8条证据，最高相似度0.7502，主要来自中国成人血脂异常防治指南2023和中国心血管病一级预防指南2020，证据等级为1A。",
+            "user_query": "他汀类药物的主要不良反应有哪些？"
+          },
+          "result_preview": "证据不足，建议继续检索或使用external_search补充"
+        },
+        {
+          "tool": "external_search",
+          "args": {
+            "query": "statin adverse effects"
+          },
+          "result_preview": "外部检索到10篇文献"
+        },
+        {
+          "tool": "evidence_evaluator",
+          "args": {
+            "evidence_summary": "检索到8条本地证据（最高相似度0.7502）和10条外部文献（包括PubMed和EuropePMC），涵盖他汀类药物的不良反应，如肌肉相关副作用、肝酶异常等。",
+            "user_query": "他汀类药物的主要不良反应有哪些？"
+          },
+          "result_preview": "证据不足，建议继续检索或使用external_search补充"
+        }
+      ],
+      "chunks_count": 3,
+      "has_evidence": true,
+      "error": null,
+      "latency_ms": 64397,
+      "scores": {
+        "completeness": 1.0,
+        "evidence_hit": 1.0,
+        "guideline_ref": 0.75,
+        "drug_accuracy": 1.0,
+        "tool_quality": 1.0,
+        "overall": 0.95
+      }
+    },
+    {
+      "query": "高血压急症的降压原则和目标是什么？",
+      "ground_truth": "高血压急症的降压原则：1)初始阶段（1小时内）平均动脉压降低不超过25%；2)随后2-6小时内将血压降至较安全水平（约160/100mmHg）；3)24-48小时内逐步降至正常水平。对于急性冠脉综合征、急性左心衰等情况，应尽快将血压降至接近正常。降压速度不宜过快，避免脏器灌注不足。首选静脉降压药物（如硝普钠、硝酸甘油、拉贝洛尔）。",
+      "source": "中国高血压防治指南2024 + ESC高血压急症管理共识",
+      "answer": "根据提供的临床证据片段，现针对高血压急症的降压原则和目标回答如下：\n\n### 核心诊疗结论\n高血压急症的降压需遵循个体化、平稳控制原则，不同临床情境下目标值存在差异，重点在于避免血压骤降导致器官灌注不足。\n\n### 详细建议\n1. **急性缺血性脑卒中患者**  \n   - 溶栓治疗前血压应控制在<185/110 mmHg（Ⅰ类推荐，B级证据）  \n   - 溶栓后24小时内维持血压<180/105 mmHg，需每15分钟监测[doc_cn_guide_0018]  \n   - 未溶栓患者血压>220/120 mmHg时，24小时内降压幅度不超过基线15%[doc_cn_guide_0018]  \n\n2. **一般高血压急症**  \n   - 推荐初始目标为1小时内血压下降不超过25%，随后2-6小时降至160/100 mmHg左右（证据片段中虽未直接提及急症目标，但根据脑卒中管理原则可类推）  \n\n3. **老年患者特殊考量**  \n   - 65-79岁患者收缩压目标<140 mmHg（可耐受时<130 mmHg）  \n   - ≥80岁患者收缩压目标<150 mmHg（可耐受时<",
+      "tool_calls": [
+        {
+          "tool": "query_classifier",
+          "args": {
+            "query": "高血压急症的降压原则和目标是什么？"
+          },
+          "result_preview": "问题分类为：treatment，识别疾病：高血压"
+        },
+        {
+          "tool": "local_search",
+          "args": {
+            "query": "高血压急症的降压原则和目标"
+          },
+          "result_preview": "检索到8条证据，最高相似度0.7541"
+        },
+        {
+          "tool": "evidence_evaluator",
+          "args": {
+            "evidence_summary": "检索到8条证据，最高相似度0.7541，证据来源包括中国脑卒中防治指导规范2023和中国高血压临床实践指南2024，证据级别为1A。",
+            "user_query": "高血压急症的降压原则和目标是什么？"
+          },
+          "result_preview": "证据不足，建议继续检索或使用external_search补充"
+        },
+        {
+          "tool": "external_search",
+          "args": {
+            "query": "hypertensive emergency treatment principles and goals"
+          },
+          "result_preview": "外部检索到6篇文献"
+        },
+        {
+          "tool": "evidence_evaluator",
+          "args": {
+            "evidence_summary": "检索到8条本地证据（最高相似度0.7541）和6条外部文献（证据级别3B），但外部文献与问题相关性较低。",
+            "user_query": "高血压急症的降压原则和目标是什么？"
+          },
+          "result_preview": "证据不足，建议继续检索或使用external_search补充"
+        }
+      ],
+      "chunks_count": 3,
+      "has_evidence": true,
+      "error": null,
+      "latency_ms": 102726,
+      "scores": {
+        "completeness": 0.0,
+        "evidence_hit": 0.5,
+        "guideline_ref": 0.75,
+        "drug_accuracy": 0.5,
+        "tool_quality": 1.0,
+        "overall": 0.425
+      }
+    },
+    {
+      "query": "SGLT2抑制剂的心血管获益证据有哪些？",
+      "ground_truth": "SGLT2抑制剂的心血管获益已获多项RCT证实：1)EMPA-REG研究表明恩格列净显著降低心血管死亡38%、全因死亡32%；2)CANVAS研究表明卡格列净降低心血管复合终点14%；3)DECLARE-TIMI 58表明达格列净降低心衰住院27%。SGLT2抑制剂还有降低心衰住院、延缓肾病进展的获益。现被推荐用于合并ASCVD、心衰或CKD的2型糖尿病患者。",
+      "source": "EMPA-REG OUTCOME试验 + CANVAS试验 + DECLARE-TIMI 58试验 + ADA标准",
+      "answer": "# SGLT2抑制剂的心血管获益证据总结\n\n## 核心诊疗结论\nSGLT2抑制剂(达格列净、恩格列净)具有明确的心血管保护作用，其获益证据包括降低心衰住院风险、减少心血管死亡、延缓肾病进展等，且这些作用不依赖于降糖效果。\n\n## 主要证据分点\n\n1. **HFrEF患者治疗**  \n   SGLT2抑制剂推荐用于所有症状性射血分数降低的心力衰竭(HFrEF)患者(不论是否合并糖尿病)，可降低心衰恶化住院和心血管死亡风险约25%(DAPA-HF和EMPEROR-Reduced研究证实)[doc_cn_guide_0023]。推荐剂量为达格列净10mg/日或恩格列净10mg/日(Ⅰ类推荐，A级证据)[doc_cn_guide_0023]。\n\n2. **HFpEF患者治疗**  \n   射血分数保留的心力衰竭(HFpEF)患者使用SGLT2抑制剂可降低心衰住院风险(Ⅱa类推荐，B级证据)，EMPEROR-Preserved和DELIVER研究证实了这一获益[doc_cn_guide_0024][doc_cn_guide_0024]。\n\n3. **糖尿病合并心血管高危患者**  \n   合并A",
+      "tool_calls": [
+        {
+          "tool": "query_classifier",
+          "args": {
+            "query": "SGLT2抑制剂的心血管获益证据有哪些？"
+          },
+          "result_preview": "问题分类为：treatment，识别疾病：无"
+        },
+        {
+          "tool": "local_search",
+          "args": {
+            "query": "SGLT2抑制剂 心血管获益"
+          },
+          "result_preview": "检索到8条证据，最高相似度0.7984"
+        },
+        {
+          "tool": "evidence_evaluator",
+          "args": {
+            "evidence_summary": "检索到8条证据，最高相似度0.7984，包括中国心力衰竭诊断和治疗指南2024、中国2型糖尿病防治指南2020等，涵盖SGLT2抑制剂在HFrEF、HFpEF、CKD及糖尿病合并心血管疾病中的应用。",
+            "user_query": "SGLT2抑制剂的心血管获益证据有哪些？"
+          },
+          "result_preview": "证据不足，建议继续检索或使用external_search补充"
+        },
+        {
+          "tool": "external_search",
+          "args": {
+            "query": "SGLT2 inhibitors cardiovascular benefits"
+          },
+          "result_preview": "外部检索到10篇文献"
+        },
+        {
+          "tool": "evidence_evaluator",
+          "args": {
+            "evidence_summary": "检索到8条本地证据和10条外部文献，包括中国心力衰竭诊断和治疗指南2024、中国2型糖尿病防治指南2020等，以及2024年更新的心血管研究文献和Meta分析。",
+            "user_query": "SGLT2抑制剂的心血管获益证据有哪些？"
+          },
+          "result_preview": "证据充分，可以生成答案"
+        }
+      ],
+      "chunks_count": 3,
+      "has_evidence": true,
+      "error": null,
+      "latency_ms": 76544,
+      "scores": {
+        "completeness": 0.75,
+        "evidence_hit": 1.0,
+        "guideline_ref": 1.0,
+        "drug_accuracy": 1.0,
+        "tool_quality": 1.0,
+        "overall": 0.912
+      }
+    },
+    {
+      "query": "冠心病二级预防的ABCDE策略是什么？",
+      "ground_truth": "冠心病二级预防ABCDE策略：A - Antiplatelet（抗血小板：阿司匹林75-100mg/日，不能耐受者用氯吡格雷）+ ACEI/ARB；B - Beta-blocker（β受体阻滞剂）+ Blood pressure control（血压控制<130/80）；C - Cholesterol management（他汀降脂，LDL-C<1.8mmol/L）+ Cigarette cessation（戒烟）；D - Diet（低盐低脂饮食）+ Diabetes management（血糖控制，HbA1c<7%）；E - Exercise（适度运动）+ Education（健康宣教）。",
+      "source": "中国冠心病康复与二级预防中国专家共识 + ESC冠心病二级预防指南",
+      "answer": "【暂无匹配的权威临床循证证据，无法给出诊疗建议】\n\n（注：当前检索到的证据片段中未包含冠心病二级预防ABCDE策略的具体内容，根据循证医学原则不予推测性回答）",
+      "tool_calls": [
+        {
+          "tool": "query_classifier",
+          "args": {
+            "query": "冠心病二级预防的ABCDE策略是什么？"
+          },
+          "result_preview": "问题分类为：treatment，识别疾病：冠心病"
+        },
+        {
+          "tool": "local_search",
+          "args": {
+            "query": "冠心病二级预防的ABCDE策略"
+          },
+          "result_preview": "检索到8条证据，最高相似度0.7306"
+        },
+        {
+          "tool": "evidence_evaluator",
+          "args": {
+            "evidence_summary": "检索到8条证据，最高相似度0.7306，证据来源包括中国心血管病一级预防指南2020、中国成人血脂异常防治指南2023、中国脑卒中防治指导规范2023等。",
+            "user_query": "冠心病二级预防的ABCDE策略是什么？"
+          },
+          "result_preview": "证据不足，建议继续检索或使用external_search补充"
+        },
+        {
+          "tool": "external_search",
+          "args": {
+            "query": "冠心病二级预防的ABCDE策略"
+          },
+          "result_preview": "外部检索到1篇文献"
+        },
+        {
+          "tool": "evidence_evaluator",
+          "args": {
+            "evidence_summary": "检索到8条本地证据和1条外部证据，最高相似度0.7306，证据来源包括中国心血管病一级预防指南2020、中国成人血脂异常防治指南2023、中国脑卒中防治指导规范2023等，外部检索到1篇文献。",
+            "user_query": "冠心病二级预防的ABCDE策略是什么？"
+          },
+          "result_preview": "证据不足，建议继续检索或使用external_search补充"
+        }
+      ],
+      "chunks_count": 1,
+      "has_evidence": true,
+      "error": null,
+      "latency_ms": 34347,
+      "scores": {
+        "completeness": 0.2,
+        "evidence_hit": 0.5,
+        "guideline_ref": 0.3,
+        "drug_accuracy": 0.0,
+        "tool_quality": 1.0,
+        "overall": 0.33
+      }
+    },
+    {
+      "query": "慢性心力衰竭的金三角药物治疗方案是什么？",
+      "ground_truth": "HFrEF（射血分数降低型心衰）的金三角药物治疗方案：1)ACEI/ARB/ARNI（如沙库巴曲缬沙坦）-改善预后降低死亡率；2)β受体阻滞剂（比索洛尔、美托洛尔缓释片、卡维地洛）-降低全因死亡和猝死风险；3)醛固酮受体拮抗剂（螺内酯/依普酮）-降低住院和死亡风险。此外，SGLT2抑制剂（达格列净/恩格列净）已成为HFrEF的第四大基石药物，可显著降低心衰恶化和心血管死亡。",
+      "source": "中国心力衰竭诊断和治疗指南2024 + ESC心衰指南",
+      "answer": "根据《中国心力衰竭诊断和治疗指南2024》的权威证据，针对慢性心力衰竭（HFrEF）患者的金三角药物治疗方案已更新为\"新四联\"方案，具体如下：\n\n**核心诊疗结论**  \n射血分数降低的心力衰竭（HFrEF, LVEF≤40%）患者应使用ARNI（或ACEI/ARB）+SGLT2抑制剂+β受体阻滞剂+醛固酮受体拮抗剂（MRA）的四联治疗方案（Ⅰ类推荐，A级证据）。\n\n**分点说明**  \n1. **ARNI（沙库巴曲缬沙坦）**  \n   作为替代传统ACEI/ARB的首选药物，基于PARADIGM-HF研究，ARNI可更显著降低全因死亡和心衰住院风险。需注意从ACEI转换时需36小时洗脱期[doc_cn_guide_0022]。\n\n2. **SGLT2抑制剂（达格列净/恩格列净）**  \n   无论是否合并糖尿病均推荐使用（10mg/日），DAPA-HF和EMPEROR-Reduced研究证实其可降低25%心衰恶化风险，eGFR≥20 mL/min时适用[doc_cn_guide_0023]。\n\n3. **β受体阻滞剂**  \n   需滴定至目标剂量或最大耐受剂量，是改善预后的基础治",
+      "tool_calls": [
+        {
+          "tool": "query_classifier",
+          "args": {
+            "query": "慢性心力衰竭的金三角药物治疗方案是什么？"
+          },
+          "result_preview": "问题分类为：treatment，识别疾病：心力衰竭"
+        },
+        {
+          "tool": "local_search",
+          "args": {
+            "query": "慢性心力衰竭 金三角药物治疗方案"
+          },
+          "result_preview": "检索到8条证据，最高相似度0.7674"
+        },
+        {
+          "tool": "evidence_evaluator",
+          "args": {
+            "evidence_summary": "检索到8条证据，最高相似度0.7674，包括中国心力衰竭诊断和治疗指南2024的推荐内容，涉及HFrEF药物治疗新四联方案（ARNI/SGLT2抑制剂/β受体阻滞剂/MRA）。",
+            "user_query": "慢性心力衰竭的金三角药物治疗方案是什么？"
+          },
+          "result_preview": "证据不足，建议继续检索或使用external_search补充"
+        },
+        {
+          "tool": "external_search",
+          "args": {
+            "query": "chronic heart failure triple therapy guideline"
+          },
+          "result_preview": "外部检索到10篇文献"
+        },
+        {
+          "tool": "evidence_evaluator",
+          "args": {
+            "evidence_summary": "检索到8条本地证据和10条外部文献，包括中国心力衰竭诊断和治疗指南2024的推荐内容，涉及HFrEF药物治疗新四联方案（ARNI/SGLT2抑制剂/β受体阻滞剂/MRA）。",
+            "user_query": "慢性心力衰竭的金三角药物治疗方案是什么？"
+          },
+          "result_preview": "证据不足，建议继续检索或使用external_search补充"
+        }
+      ],
+      "chunks_count": 3,
+      "has_evidence": true,
+      "error": null,
+      "latency_ms": 65875,
+      "scores": {
+        "completeness": 0.692,
+        "evidence_hit": 0.5,
+        "guideline_ref": 1.0,
+        "drug_accuracy": 1.0,
+        "tool_quality": 1.0,
+        "overall": 0.792
+      }
+    },
+    {
+      "query": "糖尿病肾病的分期标准是什么？",
+      "ground_truth": "糖尿病肾病（DKD）根据尿白蛋白/肌酐比值（UACR）和eGFR进行分期：A1期-UACR<30mg/g且eGFR≥60；A2期-UACR 30-300mg/g（微量白蛋白尿）且eGFR≥60；A3期-UACR>300mg/g（大量白蛋白尿）且eGFR≥60。eGFR分期：G1≥90, G2 60-89, G3a 45-59, G3b 30-44, G4 15-29, G5<15。诊断DKD还需排除其他肾病，必要时行肾穿刺活检。",
+      "source": "中国糖尿病肾脏病防治指南2024 + KDIGO糖尿病肾病管理指南",
+      "answer": "① 核心诊疗结论  \n糖尿病肾病的分期标准主要基于慢性肾脏病（CKD）的分期体系，结合肾小球滤过率（eGFR）和白蛋白尿程度进行综合评估。\n\n② 分点附带引用标注  \n1. **CKD分期标准**：  \n   - G1期：eGFR ≥90 mL/min/1.73m²  \n   - G2期：eGFR 60-89 mL/min/1.73m²  \n   - G3a期：eGFR 45-59 mL/min/1.73m²  \n   - G3b期：eGFR 30-44 mL/min/1.73m²  \n   - G4期：eGFR 15-29 mL/min/1.73m²  \n   - G5期：eGFR <15 mL/min/1.73m²或透析  \n   （Ⅰ类推荐，A级证据）[doc_cn_guide_0030]  \n\n2. **白蛋白尿分期**：  \n   - A1期：尿白蛋白/肌酐比值（UACR）<30 mg/g  \n   - A2期：UACR 30-300 mg/g  \n   - A3期：UACR >300 mg/g  \n   （Ⅰ类推荐，A级证据）[doc_cn_guide_0030]  \n\n3",
+      "tool_calls": [
+        {
+          "tool": "query_classifier",
+          "args": {
+            "query": "糖尿病肾病的分期标准是什么？"
+          },
+          "result_preview": "问题分类为：diagnosis，识别疾病：糖尿病, 肾病"
+        },
+        {
+          "tool": "local_search",
+          "args": {
+            "query": "糖尿病肾病的分期标准"
+          },
+          "result_preview": "检索到8条证据，最高相似度0.7573"
+        },
+        {
+          "tool": "evidence_evaluator",
+          "args": {
+            "evidence_summary": "检索到8条证据，最高相似度0.7573，包括中国慢性肾脏病诊疗指南2021和中国2型糖尿病防治指南2020等。证据涵盖糖尿病肾病的分期标准、诊断标准推荐等内容。",
+            "user_query": "糖尿病肾病的分期标准是什么？"
+          },
+          "result_preview": "证据不足，建议继续检索或使用external_search补充"
+        },
+        {
+          "tool": "external_search",
+          "args": {
+            "query": "糖尿病肾病 分期标准"
+          },
+          "result_preview": "外部检索到9篇文献"
+        },
+        {
+          "tool": "evidence_evaluator",
+          "args": {
+            "evidence_summary": "检索到8条本地证据和9条外部证据，最高相似度0.7573，包括中国慢性肾脏病诊疗指南2021和中国2型糖尿病防治指南2020等。外部证据未提供有效信息。",
+            "user_query": "糖尿病肾病的分期标准是什么？"
+          },
+          "result_preview": "证据不足，建议继续检索或使用external_search补充"
+        }
+      ],
+      "chunks_count": 3,
+      "has_evidence": true,
+      "error": null,
+      "latency_ms": 66278,
+      "scores": {
+        "completeness": 0.5,
+        "evidence_hit": 0.5,
+        "guideline_ref": 0.75,
+        "drug_accuracy": 0.5,
+        "tool_quality": 1.0,
+        "overall": 0.6
+      }
+    },
+    {
+      "query": "ACEI和ARB能否联合使用？",
+      "ground_truth": "不推荐ACEI和ARB常规联合使用。ONTARGET研究表明，ACEI（雷米普利）联合ARB（替米沙坦）虽然略微增加降压效果，但显著增加肾功能损害、高钾血症和低血压风险，且未改善心血管预后。仅在难治性蛋白尿、心衰等特殊情况下，在密切监测肾功能和血钾的前提下可谨慎联用，但需专家指导。",
+      "source": "ONTARGET试验 + 中国高血压防治指南2024 + ESC心衰指南",
+      "answer": "根据检索到的临床证据，关于ACEI与ARB联合使用的核心诊疗结论如下：\n\n**① 核心诊疗结论**  \nACEI与ARB联合使用在高血压、慢性肾脏病（CKD）及心力衰竭治疗中均不推荐，因可能增加不良反应风险且缺乏明确临床获益。\n\n**② 分点证据说明**  \n1. **高血压治疗**  \n   - 《中国高血压临床实践指南2024》明确禁止ACEI与ARB联用（Ⅰ类推荐，B级证据）。联合治疗推荐ACEI/ARB联合CCB或噻嗪类利尿剂，而非两者联用[doc_cn_guide_0003]。  \n   - 中国CKD指南同样指出，ACEI与ARB联用可能增加急性肾损伤和高钾血症风险，应避免[doc_cn_guide_0031]。  \n\n2. **心力衰竭治疗**  \n   - HFrEF患者推荐采用\"新四联\"方案（ARNI/ACEI/ARB + SGLT2抑制剂 + β受体阻滞剂 + MRA），但ARNI（沙库巴曲缬沙坦）本身为复合制剂，非ACEI与ARB直接联用[doc_cn_guide_0022]。  \n\n3. **慢性肾脏病治疗**  \n   - 尽管ACEI或ARB单用是CKD合并",
+      "tool_calls": [
+        {
+          "tool": "query_classifier",
+          "args": {
+            "query": "ACEI和ARB能否联合使用？"
+          },
+          "result_preview": "问题分类为：treatment，识别疾病：无"
+        },
+        {
+          "tool": "local_search",
+          "args": {
+            "query": "ACEI和ARB联合使用"
+          },
+          "result_preview": "检索到8条证据，最高相似度0.7593"
+        },
+        {
+          "tool": "evidence_evaluator",
+          "args": {
+            "evidence_summary": "检索到8条证据，最高相似度0.7593，包括中国高血压临床实践指南2024、中国心力衰竭诊断和治疗指南2024、中国慢性肾脏病诊疗指南2021等权威指南，均明确不推荐ACEI与ARB联用。",
+            "user_query": "ACEI和ARB能否联合使用？"
+          },
+          "result_preview": "证据不足，建议继续检索或使用external_search补充"
+        },
+        {
+          "tool": "external_search",
+          "args": {
+            "query": "ACEI and ARB combination therapy"
+          },
+          "result_preview": "外部检索到10篇文献"
+        },
+        {
+          "tool": "evidence_evaluator",
+          "args": {
+            "evidence_summary": "检索到8条本地证据和10条外部文献，包括中国高血压临床实践指南2024、中国心力衰竭诊断和治疗指南2024等权威指南，均明确不推荐ACEI与ARB联用。外部文献未发现支持ACEI与ARB联用的高质量证据。",
+            "user_query": "ACEI和ARB能否联合使用？"
+          },
+          "result_preview": "证据不足，建议继续检索或使用external_search补充"
+        }
+      ],
+      "chunks_count": 3,
+      "has_evidence": true,
+      "error": null,
+      "latency_ms": 56252,
+      "scores": {
+        "completeness": 1.0,
+        "evidence_hit": 0.5,
+        "guideline_ref": 0.75,
+        "drug_accuracy": 1.0,
+        "tool_quality": 1.0,
+        "overall": 0.85
+      }
+    },
+    {
+      "query": "HbA1c的诊断标准和控制目标是什么？",
+      "ground_truth": "HbA1c诊断标准：≥6.5%可诊断糖尿病（需重复确认）。控制目标：一般成人2型糖尿病患者HbA1c目标<7.0%；年轻、病程短、无并发症者可控制至<6.5%；老年、有多种合并症或频繁低血糖者可放宽至<8.0%。妊娠期糖尿病目标为<6.0%。HbA1c反映近2-3个月平均血糖水平，应每3-6个月检测一次。",
+      "source": "中国2型糖尿病防治指南2024 + ADA糖尿病医学诊疗标准",
+      "answer": "① 核心诊疗结论  \n根据中国2型糖尿病防治指南2020及国际共识，HbA1c的诊断标准为≥6.5%，控制目标需个体化设定，一般成人2型糖尿病患者推荐目标为<7.0%。  \n\n② 分点说明  \n1. **诊断标准**  \n   - HbA1c≥6.5%可作为糖尿病诊断依据之一（结合空腹血糖或OGTT结果）[doc_ext_pubmed_37101021]。  \n\n2. **控制目标**  \n   - **一般成人**：HbA1c<7.0%（Ⅰ类推荐，A级证据）[doc_cn_guide_0005]。  \n   - **年轻/病程短/无并发症者**：无低血糖风险时可进一步降至<6.5%[doc_cn_guide_0005]。  \n   - **高龄/病程长/心血管高危/反复低血糖者**：可放宽至<8.0%[doc_cn_guide_0005]。  \n   - **监测要求**：应使用NGSP认证设备检测，并尽可能接近正常范围[pmc_full_6467165]。  \n\n③ 完整引用来源附录  \n1. [doc_cn_guide_0005] 中国2型糖尿病防治指南2020 - 糖化血红蛋白",
+      "tool_calls": [
+        {
+          "tool": "query_classifier",
+          "args": {
+            "query": "HbA1c的诊断标准和控制目标是什么？"
+          },
+          "result_preview": "问题分类为：diagnosis，识别疾病：无"
+        },
+        {
+          "tool": "local_search",
+          "args": {
+            "query": "HbA1c 诊断标准 控制目标"
+          },
+          "result_preview": "检索到8条证据，最高相似度0.7253"
+        },
+        {
+          "tool": "evidence_evaluator",
+          "args": {
+            "evidence_summary": "检索到8条证据，最高相似度0.7253，包括中国2型糖尿病防治指南2020的推荐内容，以及PubMed和PMC的相关文献。指南中明确提到HbA1c的控制目标和个体化设定。",
+            "user_query": "HbA1c的诊断标准和控制目标是什么？"
+          },
+          "result_preview": "证据不足，建议继续检索或使用external_search补充"
+        },
+        {
+          "tool": "external_search",
+          "args": {
+            "query": "HbA1c diagnostic criteria and control targets"
+          },
+          "result_preview": "外部检索到10篇文献"
+        },
+        {
+          "tool": "evidence_evaluator",
+          "args": {
+            "evidence_summary": "检索到8条本地证据和10条外部证据，包括中国2型糖尿病防治指南2020的推荐内容，以及PubMed和EuropePMC的最新文献。指南中明确提到HbA1c的控制目标和个体化设定，外部文献补充了更多关于糖尿病管理的细节。",
+            "user_query": "HbA1c的诊断标准和控制目标是什么？"
+          },
+          "result_preview": "证据不足，建议继续检索或使用external_search补充"
+        }
+      ],
+      "chunks_count": 3,
+      "has_evidence": true,
+      "error": null,
+      "latency_ms": 62283,
+      "scores": {
+        "completeness": 0.8,
+        "evidence_hit": 1.0,
+        "guideline_ref": 0.75,
+        "drug_accuracy": 0.5,
+        "tool_quality": 1.0,
+        "overall": 0.805
+      }
+    },
+    {
+      "query": "PCI术后双联抗血小板治疗（DAPT）的持续时间？",
+      "ground_truth": "PCI术后DAPT持续时间取决于出血风险和缺血风险：1)稳定型冠心病：DES植入后DAPT至少6个月，高出血风险者可缩短至3个月；2)急性冠脉综合征（ACS）：DAPT至少12个月。高缺血风险者可延长至30个月。对于需要口服抗凝的房颤患者，三联治疗（OAC+DAPT）应尽量缩短至1-3个月，之后改为OAC+单一抗血小板药物。出血风险高者优先使用P2Y12抑制剂+OAC双联方案。",
+      "source": "ESC心肌血运重建指南 + 中国PCI术后抗栓治疗专家共识",
+      "answer": "根据提供的临床证据片段，关于PCI术后双联抗血小板治疗（DAPT）持续时间的推荐如下：\n\n### 核心诊疗结论\nPCI术后DAPT持续时间需根据患者具体临床情况（如是否合并急性冠脉综合征ACS、出血风险等）个体化决定，目前证据支持：\n1. **ACS患者**：常规推荐12个月DAPT，但部分低出血风险患者可考虑缩短至1-2个月后改为氯吡格雷单药治疗（证据等级1B）[doc_ext_pubmed_35234821]\n2. **高出血风险患者**：可考虑无阿司匹林策略或缩短DAPT疗程（证据等级1B）[doc_ext_pubmed_37994553]\n\n### 分点说明\n1. **标准ACS患者**：STOPDAPT-2 ACS试验显示，1-2个月DAPT后改为氯吡格雷单药治疗在心血管事件复合终点上非劣效于12个月DAPT，但需严格评估出血风险[doc_ext_pubmed_35234821]\n2. **高出血风险患者**：STOPDAPT-3试验提示，PCI术后早期（1个月内）采用无阿司匹林策略可能减少出血事件，但需进一步验证其安全性[doc_ext_pubmed_37994553]\n3",
+      "tool_calls": [
+        {
+          "tool": "query_classifier",
+          "args": {
+            "query": "PCI术后双联抗血小板治疗（DAPT）的持续时间？"
+          },
+          "result_preview": "问题分类为：treatment，识别疾病：无"
+        },
+        {
+          "tool": "local_search",
+          "args": {
+            "query": "PCI术后双联抗血小板治疗（DAPT）的持续时间"
+          },
+          "result_preview": "检索到8条证据，最高相似度0.7084"
+        },
+        {
+          "tool": "evidence_evaluator",
+          "args": {
+            "evidence_summary": "检索到8条证据，最高相似度0.7084，证据来源包括中国脑卒中防治指导规范2023和PubMed文献，证据级别为1A和2A。",
+            "user_query": "PCI术后双联抗血小板治疗（DAPT）的持续时间？"
+          },
+          "result_preview": "证据不足，建议继续检索或使用external_search补充"
+        },
+        {
+          "tool": "external_search",
+          "args": {
+            "query": "PCI术后双联抗血小板治疗（DAPT）的持续时间"
+          },
+          "result_preview": "外部检索到9篇文献"
+        },
+        {
+          "tool": "evidence_evaluator",
+          "args": {
+            "evidence_summary": "外部检索到9篇文献，包括2022年至2025年的RCT和临床研究，证据级别为1B和3B。其中STOPDAPT-2 ACS和STOPDAPT-3等研究探讨了PCI术后DAPT的持续时间。",
+            "user_query": "PCI术后双联抗血小板治疗（DAPT）的持续时间？"
+          },
+          "result_preview": "证据不足，建议继续检索或使用external_search补充"
+        }
+      ],
+      "chunks_count": 3,
+      "has_evidence": true,
+      "error": null,
+      "latency_ms": 62520,
+      "scores": {
+        "completeness": 1.0,
+        "evidence_hit": 1.0,
+        "guideline_ref": 0.85,
+        "drug_accuracy": 0.5,
+        "tool_quality": 1.0,
+        "overall": 0.895
+      }
+    },
+    {
+      "query": "代谢综合征的诊断标准是什么？",
+      "ground_truth": "代谢综合征诊断需满足以下3项及以上：1)腹型肥胖：腰围男性≥90cm，女性≥85cm；2)血压≥130/85mmHg或已治疗；3)空腹血糖≥6.1mmol/L或已诊断糖尿病；4)甘油三酯≥1.7mmol/L或已治疗；5)HDL-C男性<1.0mmol/L，女性<1.3mmol/L或已治疗。代谢综合征显著增加心血管事件和2型糖尿病风险，治疗以生活方式干预为基础，配合针对各组分药物治疗。",
+      "source": "中国代谢综合征防治指南 + 中华医学会糖尿病学分会标准",
+      "answer": "【暂无匹配的权威临床循证证据，无法给出诊疗建议】  \n\n（当前检索证据片段中未包含代谢综合征诊断标准相关内容）  \n\n===== 引用来源附录 =====  \n（无相关引用）",
+      "tool_calls": [
+        {
+          "tool": "query_classifier",
+          "args": {
+            "query": "代谢综合征的诊断标准是什么？"
+          },
+          "result_preview": "问题分类为：diagnosis，识别疾病：无"
+        },
+        {
+          "tool": "local_search",
+          "args": {
+            "query": "代谢综合征的诊断标准"
+          },
+          "result_preview": "检索到8条证据，最高相似度0.6512"
+        },
+        {
+          "tool": "external_search",
+          "args": {
+            "query": "metabolic syndrome diagnostic criteria"
+          },
+          "result_preview": "外部检索到5篇文献"
+        },
+        {
+          "tool": "evidence_evaluator",
+          "args": {
+            "evidence_summary": "本地检索到8条证据，最高相似度0.6512，涉及慢性肾脏病诊断标准，但与代谢综合征不完全匹配。外部检索补充了5篇文献，其中1篇（PMID:19805654）涉及代谢综合征的国际共识定义。",
+            "user_query": "代谢综合征的诊断标准是什么？"
+          },
+          "result_preview": "证据不足，建议继续检索或使用external_search补充"
+        },
+        {
+          "tool": "external_search",
+          "args": {
+            "query": "代谢综合征 诊断标准"
+          },
+          "result_preview": "外部检索到9篇文献"
+        }
+      ],
+      "chunks_count": 3,
+      "has_evidence": true,
+      "error": null,
+      "latency_ms": 51786,
+      "scores": {
+        "completeness": 0.111,
+        "evidence_hit": 0.5,
+        "guideline_ref": 0.6,
+        "drug_accuracy": 0.5,
+        "tool_quality": 1.0,
+        "overall": 0.434
+      }
+    }
+  ],
+  "timestamp": "20260713_131451"
+}

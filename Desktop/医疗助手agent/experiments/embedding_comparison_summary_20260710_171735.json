@@ -1,0 +1,89 @@
+{
+  "experiment_time": "2026-07-10T17:17:35.636970",
+  "total_documents": 1466,
+  "total_queries": 18,
+  "models": {
+    "bge-small": {
+      "model_name": "BAAI/bge-small-zh-v1.5",
+      "model_description": "BGE-small-zh-v1.5 (512维，轻量级中英文)",
+      "embedding_dim": 512,
+      "metrics": {
+        "total_queries": 18,
+        "top1_keyword_hit_rate": 0.8889,
+        "top3_keyword_hit_rate": 1.0,
+        "top5_keyword_hit_rate": 1.0,
+        "avg_top1_similarity": 0.685,
+        "avg_top3_similarity": 0.6549,
+        "avg_top5_similarity": 0.632,
+        "source_type_match_rate": 1.0,
+        "evidence_level_match_rate": 1.0,
+        "avg_keyword_match_ratio": 0.637,
+        "avg_response_ms": 15.0,
+        "zh_queries": 13,
+        "zh_avg_top1_score": 0.7059,
+        "zh_keyword_hit_rate": 1.0,
+        "en_queries": 5,
+        "en_avg_top1_score": 0.6305,
+        "en_keyword_hit_rate": 0.6
+      }
+    },
+    "bge-large": {
+      "model_name": "BAAI/bge-large-zh-v1.5",
+      "model_description": "BGE-large-zh-v1.5 (1024维，大型中文优化)",
+      "embedding_dim": 1024,
+      "metrics": {
+        "total_queries": 18,
+        "top1_keyword_hit_rate": 0.9444,
+        "top3_keyword_hit_rate": 1.0,
+        "top5_keyword_hit_rate": 1.0,
+        "avg_top1_similarity": 0.6334,
+        "avg_top3_similarity": 0.5921,
+        "avg_top5_similarity": 0.5718,
+        "source_type_match_rate": 1.0,
+        "evidence_level_match_rate": 1.0,
+        "avg_keyword_match_ratio": 0.6806,
+        "avg_response_ms": 14.1,
+        "zh_queries": 13,
+        "zh_avg_top1_score": 0.6558,
+        "zh_keyword_hit_rate": 1.0,
+        "en_queries": 5,
+        "en_avg_top1_score": 0.5753,
+        "en_keyword_hit_rate": 0.8
+      }
+    },
+    "pubmedbert": {
+      "model_name": "microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext",
+      "model_description": "PubMedBERT (768维，医疗领域专用)",
+      "embedding_dim": 768,
+      "metrics": {
+        "total_queries": 18,
+        "top1_keyword_hit_rate": 0.4444,
+        "top3_keyword_hit_rate": 0.8333,
+        "top5_keyword_hit_rate": 0.8889,
+        "avg_top1_similarity": 0.9576,
+        "avg_top3_similarity": 0.9568,
+        "avg_top5_similarity": 0.9562,
+        "source_type_match_rate": 1.0,
+        "evidence_level_match_rate": 1.0,
+        "avg_keyword_match_ratio": 0.2046,
+        "avg_response_ms": 12.8,
+        "zh_queries": 13,
+        "zh_avg_top1_score": 0.961,
+        "zh_keyword_hit_rate": 0.5385,
+        "en_queries": 5,
+        "en_avg_top1_score": 0.9489,
+        "en_keyword_hit_rate": 0.2
+      }
+    }
+  },
+  "conclusion": {
+    "composite_scores": {
+      "bge-small": 0.8815,
+      "bge-large": 0.9062,
+      "pubmedbert": 0.6206
+    },
+    "best_model": "bge-large",
+    "best_model_name": "BAAI/bge-large-zh-v1.5",
+    "analysis": "综合评分最高: bge-large (BGE-large-zh-v1.5 (1024维，大型中文优化))，综合得分 0.9062。BGE-small: 0.8815, BGE-large: 0.9062, PubMedBERT: 0.6206"
+  }
+}

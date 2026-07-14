@@ -1,0 +1,62 @@
+[
+  {
+    "query": "根据2型糖尿病(T2DM)的病理生理学机制，请阐述导致该疾病发生的两个主要因素及其对葡萄糖稳态的影响。",
+    "ground_truth": "2型糖尿病发生的两个主要因素是：1) 胰腺β细胞胰岛素分泌缺陷；2) 胰岛素敏感组织对胰岛素反应异常。由于胰岛素分泌和活性是维持葡萄糖稳态的关键，这些缺陷会导致胰岛素合成、释放及信号转导的分子机制失调，从而引发代谢失衡，最终发展为疾病。",
+    "source": "Pathophysiology of Type 2 Diabetes Mellitus",
+    "expected_chunks": null
+  },
+  {
+    "query": "A 58-year-old male with stage 4 chronic kidney disease is being evaluated for inflammatory markers. Based on current evidence, how does chemerin level typically compare between CKD patients and healthy controls? What is the strength of this evidence?",
+    "ground_truth": "According to a systematic review and meta-analysis of 8 studies involving 875 individuals, chemerin levels are significantly elevated in chronic kidney disease (CKD) patients (including end-stage renal disease patients undergoing hemodialysis) compared to healthy controls. The evidence supporting this association is level 1A (highest quality evidence from meta-analysis of randomized controlled trials or systematic reviews).",
+    "source": "Chemerin levels in chronic kidney disease: A systematic review and meta-analysis.",
+    "expected_chunks": null
+  },
+  {
+    "query": "对于合并心房颤动的急性缺血性脑卒中患者，早期与晚期启动口服抗凝治疗在二级预防中的疗效和安全性如何？请基于最新循证医学证据进行阐述。",
+    "ground_truth": "根据对3项随机对照试验（共6442例患者）的系统评价和Meta分析，早期（约卒中后48小时内）与晚期启动口服抗凝治疗在预防卒中复发方面具有相似疗效。采用Mantel-Haenszel法计算的合并比值比（OR）显示两组在主要结局上无显著统计学差异。该证据等级为1A级，表明当前最佳证据支持早期或晚期启动抗凝治疗均可作为临床选择。",
+    "source": "Comparison of early vs late anticoagulation for secondary stroke prevention in patients with atrial fibrillation: a systematic review and meta-analysis of randomized controlled trials.",
+    "expected_chunks": null
+  },
+  {
+    "query": "对于左心室射血分数大于35%且因心脏传导阻滞需要永久起搏的患者，生理性起搏（双心室起搏或希氏束起搏）与右心室起搏相比，在预防不良结构和功能改变方面有何优势？请基于现有证据说明。",
+    "ground_truth": "根据2018年ACC/AHA/HRS指南的系统综述（证据等级1A），在左心室射血分数>35%的患者中，生理性起搏（包括双心室起搏[BiVP]和希氏束起搏[HisBP]）可能预防右心室起搏[RVP]导致的不良结构和功能重构，并与更好的结构、功能及临床结局相关。但具体优势需结合个体患者情况评估。",
+    "source": "Impact of Physiologic Pacing Versus Right Ventricular Pacing Among Patients With Left Ventricular Ejection Fraction Greater Than 35%: A Systematic Review for the 2018 ACC/AHA/HRS Guideline on the Evaluation and Management of Patients With Bradycardia and Cardiac Conduction Delay",
+    "expected_chunks": null
+  },
+  {
+    "query": "一名45岁2型糖尿病患者近期出现大量蛋白尿（macroproteinuria）伴肾功能下降，作为临床医生，请根据典型糖尿病肾病（DKD）的病理特征和临床进展特点，分析该患者可能的疾病阶段及预后。",
+    "ground_truth": "根据文献描述，该患者已进入糖尿病肾病（DKD）的进展期阶段，表现为大量蛋白尿伴肾功能下降。典型DKD病理特征包括：肾小球基底膜增厚、系膜基质扩张、Kimmelstiel-Wilson结节形成以及晚期肾小球硬化。一旦出现大量蛋白尿，疾病逆转可能性降低，部分患者可能最终进展至终末期肾病（ESRD）。",
+    "source": "Non-Classical Clinical Types and Pathological Changes of Diabetic Kidney Disease: A Review",
+    "expected_chunks": null
+  },
+  {
+    "query": "对于心房颤动患者，脉冲场消融（PFA）与射频消融（RFA）或冷冻球囊消融（CBA）相比，在手术时间、并发症发生率和一年内房性心律失常复发率方面有哪些优势？",
+    "ground_truth": "根据系统评价和荟萃分析结果：1. 手术时间方面：PFA比RFA缩短手术时间（平均差-44.27分钟，95%CI：-63.61至-24.93）和左心房停留时间（平均差-32.71分钟，95%CI：-58.64至-6.78），但透视时间长于RFA（平均差+8.54分钟，95%CI：4.03至13.04）。2. 并发症发生率：PFA比CBA术后并发症发生率更低（OR 0.53，95%CI：0.35-0.80）。3. 一年复发率：PFA的一年内房性心律失常复发率低于RFA（OR 0.68，95%CI：0.53-0.87）和CBA（OR 0.69，95%CI：0.48-0.97）。",
+    "source": "Pulsed-field ablation versus radiofrequency or cryoballoon thermal ablation in atrial fibrillation: a systematic review and meta-analysis.",
+    "expected_chunks": null
+  },
+  {
+    "query": "What are the current challenges in the treatment of diabetic kidney disease (DKD) based on the latest research?",
+    "ground_truth": "The current challenges in the treatment of diabetic kidney disease (DKD) include its complex pathogenesis, the lack of specific and effective intervention targets, and the absence of breakthrough treatments, which contribute to the continuous increase in end-stage DKD cases.",
+    "source": "[Treatment of diabetic kidney disease: research development, current hotspots and future directions]",
+    "expected_chunks": null
+  },
+  {
+    "query": "对于目前患有心房颤动（AF）或正在接受AF治疗的患者，基于运动的心脏康复（ExCR）与非运动对照组相比有哪些潜在的益处和危害？",
+    "ground_truth": "根据文献摘要，基于运动的心脏康复（ExCR）可能为心房颤动（AF）患者或正在接受AF治疗的患者提供额外的益处，但具体益处和危害需要进一步评估。摘要提到AF会增加卒中风险、心力衰竭并降低生活质量，而ExCR可能对这些方面有改善作用，但未明确说明与非运动对照组相比的具体益处和危害。因此，需要参考更详细的文献内容或研究结果来明确ExCR的具体效果。",
+    "source": "Exercise-based cardiac rehabilitation for adults with atrial fibrillation.",
+    "expected_chunks": null
+  },
+  {
+    "query": "对于急性心力衰竭患者，神经肌肉电刺激（NMES）相较于传统控制治疗在改善患者预后方面有哪些潜在优势？请基于现有随机对照试验的系统评价和荟萃分析证据进行阐述。",
+    "ground_truth": "根据1A级证据的系统评价和荟萃分析，神经肌肉电刺激对急性心力衰竭患者具有以下优势：1）可安全诱导肌肉收缩而不引起呼吸困难；2）改善因急性心衰导致的躯体功能受损；3）可能降低再住院率；4）改善生活质量。而传统运动康复虽对慢性心衰有效，但在急性期可行性受限。",
+    "source": "A systematic review and meta-analysis of randomized controlled trials on the effects of neuromuscular electrical stimulation in patients with acute heart failure.",
+    "expected_chunks": null
+  },
+  {
+    "query": "根据最新的系统评价和荟萃分析，inclisiran在治疗高胆固醇血症中的疗效和安全性如何？请具体说明其对血脂参数的影响及统计学意义。",
+    "ground_truth": "根据纳入8项RCTs（共4947例患者）的系统评价和荟萃分析，inclisiran显著降低以下血脂参数（均P<0.05）：\n1. 低密度脂蛋白胆固醇（LDL-C）：平均降幅46.95%（95%CI：-53.26至-40.46）\n2. PCSK9：平均降幅70.80%（95%CI：-76.52至-65.08）\n3. 血清总胆固醇：平均降幅29.47%（95%CI：-32.56至-26.39）\n4. 非高密度脂蛋白胆固醇：平均降幅40.46%（95%CI：-45.24至-35.68）\n5. 载脂蛋白B：平均降幅36.77%（95%CI：-40.94至-32.61）\n6. 脂蛋白(a)：平均降幅20.04%（95%CI未完整显示）。\n该研究证实inclisiran治疗高胆固醇血症具有显著疗效且安全性良好（证据等级1A）。",
+    "source": "Safety and efficacy of inclisiran in treating hypercholesterolemia: A systemic review and meta-analysis.",
+    "expected_chunks": null
+  }
+]

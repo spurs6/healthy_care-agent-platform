@@ -1,0 +1,1140 @@
+{
+  "eval_info": {
+    "timestamp": "2026-07-10T22:24:33.816222",
+    "script": "eval_rag_v2.py",
+    "total_test_cases": 32,
+    "rag_system": "BGE-large-zh-v1.5 + BM25 + 查询重写 + GPU",
+    "embedding_model": "BAAI/bge-large-zh-v1.5",
+    "embedding_dim": 1024,
+    "device": "cuda",
+    "total_chunks": 8846,
+    "bm25_enabled": true,
+    "query_rewrite_enabled": true
+  },
+  "overall_summary": {
+    "retrieval_success_rate": 1.0,
+    "avg_context_precision": 0.85625,
+    "avg_context_recall": 0.691071875,
+    "avg_top1_score": 0.76414375,
+    "avg_top3_score": 0.739771875,
+    "avg_top5_score": 0.721253125,
+    "avg_source_type_accuracy": 0.859375,
+    "avg_evidence_level_match": 0.984375,
+    "avg_faithfulness": 0.813903125,
+    "avg_citation_accuracy": 1.0,
+    "avg_response_time_ms": 9135.284375,
+    "pass_rate": 0.71875,
+    "pass_count": 23
+  },
+  "by_category": {
+    "hypertension": {
+      "total": 4,
+      "success": 4,
+      "pass": 2,
+      "avg_precision": 0.75,
+      "avg_recall": 0.47025,
+      "avg_top1": 0.7207250000000001,
+      "avg_faithfulness": 0.685225
+    },
+    "diabetes": {
+      "total": 4,
+      "success": 4,
+      "pass": 3,
+      "avg_precision": 0.9,
+      "avg_recall": 0.65,
+      "avg_top1": 0.7770250000000001,
+      "avg_faithfulness": 0.8204
+    },
+    "heart_failure": {
+      "total": 4,
+      "success": 4,
+      "pass": 3,
+      "avg_precision": 0.8,
+      "avg_recall": 0.875,
+      "avg_top1": 0.845175,
+      "avg_faithfulness": 0.87155
+    },
+    "atrial_fibrillation": {
+      "total": 4,
+      "success": 4,
+      "pass": 4,
+      "avg_precision": 1.0,
+      "avg_recall": 0.808325,
+      "avg_top1": 0.73415,
+      "avg_faithfulness": 0.8893249999999999
+    },
+    "hyperlipidemia": {
+      "total": 4,
+      "success": 4,
+      "pass": 3,
+      "avg_precision": 0.9,
+      "avg_recall": 0.9,
+      "avg_top1": 0.8049999999999999,
+      "avg_faithfulness": 0.901
+    },
+    "stroke": {
+      "total": 4,
+      "success": 4,
+      "pass": 3,
+      "avg_precision": 0.95,
+      "avg_recall": 0.675,
+      "avg_top1": 0.78965,
+      "avg_faithfulness": 0.845425
+    },
+    "coronary_heart_disease": {
+      "total": 4,
+      "success": 4,
+      "pass": 3,
+      "avg_precision": 0.8,
+      "avg_recall": 0.6,
+      "avg_top1": 0.6831,
+      "avg_faithfulness": 0.756625
+    },
+    "chronic_kidney_disease": {
+      "total": 4,
+      "success": 4,
+      "pass": 2,
+      "avg_precision": 0.75,
+      "avg_recall": 0.55,
+      "avg_top1": 0.758325,
+      "avg_faithfulness": 0.741675
+    }
+  },
+  "detailed_results": [
+    {
+      "query": "高血压患者首选什么降压药？",
+      "category": "hypertension",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 1.0,
+      "context_recall": 0.7143,
+      "top1_score": 0.7386,
+      "top3_score": 0.7233,
+      "top5_score": 0.7103,
+      "source_type_accuracy": 1.0,
+      "evidence_level_match": 1.0,
+      "faithfulness": 0.862,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 10339.1,
+      "top3_titles": [
+        "中国高血压临床实践指南2024 - 联合降压药物治疗推荐",
+        "中国高血压临床实践指南2024 - 联合降压药物治疗推荐",
+        "中国高血压临床实践指南2024 - 启动降压药物治疗时机推荐"
+      ],
+      "top3_sources": [
+        "cn_guide",
+        "cn_guide",
+        "cn_guide"
+      ],
+      "hit_keywords": [
+        "ACEI",
+        "降压药",
+        "高血压",
+        "ARB",
+        "CCB"
+      ]
+    },
+    {
+      "query": "高血压合并糖尿病用什么降压药？",
+      "category": "hypertension",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 1.0,
+      "context_recall": 0.8,
+      "top1_score": 0.7599,
+      "top3_score": 0.7534,
+      "top5_score": 0.739,
+      "source_type_accuracy": 1.0,
+      "evidence_level_match": 1.0,
+      "faithfulness": 0.892,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 9054.4,
+      "top3_titles": [
+        "中国2型糖尿病防治指南2020 - 糖尿病合并高血压和血脂管理推荐",
+        "中国高血压临床实践指南2024 - 联合降压药物治疗推荐",
+        "中国2型糖尿病防治指南2020 - 糖尿病合并高血压和血脂管理推荐"
+      ],
+      "top3_sources": [
+        "cn_guide",
+        "cn_guide",
+        "cn_guide"
+      ],
+      "hit_keywords": [
+        "ACEI",
+        "糖尿病",
+        "高血压",
+        "ARB"
+      ]
+    },
+    {
+      "query": "hypertension first-line treatment guidelines",
+      "category": "hypertension",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 0.2,
+      "context_recall": 0.1667,
+      "top1_score": 0.6608,
+      "top3_score": 0.6523,
+      "top5_score": 0.6499,
+      "source_type_accuracy": 0.5,
+      "evidence_level_match": 0.5,
+      "faithfulness": 0.3422,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 8188.4,
+      "top3_titles": [
+        "2018 Chinese Guidelines for Prevention and Treatment of Hype",
+        "Hypertension diagnosis and management in Bamako, Mali.",
+        "[Practical guideline on the prevention and management of dia"
+      ],
+      "top3_sources": [
+        "pmc_fulltext",
+        "cn_eupmc",
+        "cn_eupmc"
+      ],
+      "hit_keywords": [
+        "antihypertensive"
+      ]
+    },
+    {
+      "query": "顽固性高血压如何处理？",
+      "category": "hypertension",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 0.8,
+      "context_recall": 0.2,
+      "top1_score": 0.7236,
+      "top3_score": 0.7058,
+      "top5_score": 0.7012,
+      "source_type_accuracy": 1.0,
+      "evidence_level_match": 1.0,
+      "faithfulness": 0.6447,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 8346.8,
+      "top3_titles": [
+        "中国高血压临床实践指南2024 - 启动降压药物治疗时机推荐",
+        "中国脑卒中防治指导规范2023 - 急性缺血性脑卒中血压管理推荐",
+        "中国高血压临床实践指南2024 - 启动降压药物治疗时机推荐"
+      ],
+      "top3_sources": [
+        "cn_guide",
+        "cn_guide",
+        "cn_guide"
+      ],
+      "hit_keywords": [
+        "高血压"
+      ]
+    },
+    {
+      "query": "2型糖尿病的首选药物是什么？",
+      "category": "diabetes",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 1.0,
+      "context_recall": 0.5,
+      "top1_score": 0.8004,
+      "top3_score": 0.7713,
+      "top5_score": 0.7437,
+      "source_type_accuracy": 1.0,
+      "evidence_level_match": 1.0,
+      "faithfulness": 0.8101,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 8084.6,
+      "top3_titles": [
+        "中国2型糖尿病防治指南2020 - 心血管高危患者降糖药选择推荐",
+        "中国2型糖尿病防治指南2020 - 心血管高危患者降糖药选择推荐",
+        "中国2型糖尿病防治指南2020 - 二甲双胍一线治疗推荐"
+      ],
+      "top3_sources": [
+        "cn_guide",
+        "cn_guide",
+        "cn_guide"
+      ],
+      "hit_keywords": [
+        "二甲双胍",
+        "2型糖尿病"
+      ]
+    },
+    {
+      "query": "糖尿病合并心血管疾病如何选择降糖药？",
+      "category": "diabetes",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "top1_score": 0.8171,
+      "top3_score": 0.8007,
+      "top5_score": 0.7758,
+      "source_type_accuracy": 1.0,
+      "evidence_level_match": 1.0,
+      "faithfulness": 0.9634,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 10344.9,
+      "top3_titles": [
+        "中国2型糖尿病防治指南2020 - 心血管高危患者降糖药选择推荐",
+        "中国2型糖尿病防治指南2020 - 心血管高危患者降糖药选择推荐",
+        "中国2型糖尿病防治指南2020 - 糖尿病合并高血压和血脂管理推荐"
+      ],
+      "top3_sources": [
+        "cn_guide",
+        "cn_guide",
+        "cn_guide"
+      ],
+      "hit_keywords": [
+        "心血管",
+        "SGLT2",
+        "GLP-1",
+        "恩格列净",
+        "糖尿病",
+        "利拉鲁肽"
+      ]
+    },
+    {
+      "query": "type 2 diabetes pharmacological treatment options",
+      "category": "diabetes",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 1.0,
+      "context_recall": 0.6,
+      "top1_score": 0.7711,
+      "top3_score": 0.7582,
+      "top5_score": 0.7386,
+      "source_type_accuracy": 0.5,
+      "evidence_level_match": 1.0,
+      "faithfulness": 0.8342,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 41408.7,
+      "top3_titles": [
+        "Type 2 Diabetes Remission: A Systematic Review and Meta-anal",
+        "[Antihyperglycemic treatment of type 2 diabetes mellitus (Up",
+        "Initial Pharmacological Strategies in People with Early Type"
+      ],
+      "top3_sources": [
+        "pubmed",
+        "europepmc",
+        "pubmed"
+      ],
+      "hit_keywords": [
+        "GLP-1",
+        "diabetes",
+        "metformin"
+      ]
+    },
+    {
+      "query": "糖尿病肾病的管理策略",
+      "category": "diabetes",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 0.6,
+      "context_recall": 0.5,
+      "top1_score": 0.7195,
+      "top3_score": 0.7062,
+      "top5_score": 0.6887,
+      "source_type_accuracy": 1.0,
+      "evidence_level_match": 1.0,
+      "faithfulness": 0.6739,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 7646.5,
+      "top3_titles": [
+        "中国2型糖尿病防治指南2020 - 糖尿病合并高血压和血脂管理推荐",
+        "中国2型糖尿病防治指南2020 - 糖尿病合并高血压和血脂管理推荐",
+        "中国慢性肾脏病诊疗指南2021 - CKD合并高血压血压管理推荐"
+      ],
+      "top3_sources": [
+        "cn_guide",
+        "cn_guide",
+        "cn_guide"
+      ],
+      "hit_keywords": [
+        "ACEI",
+        "肾功能",
+        "ARB"
+      ]
+    },
+    {
+      "query": "心力衰竭的药物治疗新四联是什么？",
+      "category": "heart_failure",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 0.4,
+      "context_recall": 0.6667,
+      "top1_score": 0.8638,
+      "top3_score": 0.766,
+      "top5_score": 0.7273,
+      "source_type_accuracy": 1.0,
+      "evidence_level_match": 1.0,
+      "faithfulness": 0.6928,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 5636.1,
+      "top3_titles": [
+        "中国心力衰竭诊断和治疗指南2024 - HFrEF药物治疗新四联推荐",
+        "中国心力衰竭诊断和治疗指南2024 - 心力衰竭利尿剂使用推荐",
+        "中国高血压临床实践指南2024 - 联合降压药物治疗推荐"
+      ],
+      "top3_sources": [
+        "cn_guide",
+        "cn_guide",
+        "cn_guide"
+      ],
+      "hit_keywords": [
+        "MRA",
+        "沙库巴曲缬沙坦",
+        "β受体阻滞剂",
+        "ARNI"
+      ]
+    },
+    {
+      "query": "射血分数降低的心衰HFrEF如何治疗？",
+      "category": "heart_failure",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 0.8,
+      "context_recall": 1.0,
+      "top1_score": 0.853,
+      "top3_score": 0.8223,
+      "top5_score": 0.778,
+      "source_type_accuracy": 1.0,
+      "evidence_level_match": 1.0,
+      "faithfulness": 0.9106,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 6640.6,
+      "top3_titles": [
+        "中国心力衰竭诊断和治疗指南2024 - HFrEF药物治疗新四联推荐",
+        "中国心力衰竭诊断和治疗指南2024 - 射血分数保留心衰治疗推荐",
+        "中国心力衰竭诊断和治疗指南2024 - SGLT2抑制剂治疗HFrEF推荐"
+      ],
+      "top3_sources": [
+        "cn_guide",
+        "cn_guide",
+        "cn_guide"
+      ],
+      "hit_keywords": [
+        "ACEI",
+        "射血分数",
+        "HFrEF",
+        "ARNI",
+        "SGLT2",
+        "β受体阻滞剂"
+      ]
+    },
+    {
+      "query": "heart failure treatment guidelines beta-blocker",
+      "category": "heart_failure",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "top1_score": 0.7811,
+      "top3_score": 0.7679,
+      "top5_score": 0.7552,
+      "source_type_accuracy": 0.5,
+      "evidence_level_match": 1.0,
+      "faithfulness": 0.9562,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 5691.6,
+      "top3_titles": [
+        "Beta-blocker therapy in heart failure with preserved ejectio",
+        "Beta-blocker therapy in heart failure with preserved ejectio",
+        "Utilization and dose optimization of beta-blockers in chroni"
+      ],
+      "top3_sources": [
+        "pubmed",
+        "pubmed",
+        "europepmc"
+      ],
+      "hit_keywords": [
+        "HFrEF",
+        "mortality",
+        "heart failure",
+        "beta-blocker",
+        "guideline"
+      ]
+    },
+    {
+      "query": "急性心衰的利尿剂使用原则",
+      "category": "heart_failure",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 1.0,
+      "context_recall": 0.8333,
+      "top1_score": 0.8828,
+      "top3_score": 0.8215,
+      "top5_score": 0.7714,
+      "source_type_accuracy": 1.0,
+      "evidence_level_match": 1.0,
+      "faithfulness": 0.9266,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 6292.1,
+      "top3_titles": [
+        "中国心力衰竭诊断和治疗指南2024 - 心力衰竭利尿剂使用推荐",
+        "中国心力衰竭诊断和治疗指南2024 - 心力衰竭利尿剂使用推荐",
+        "中国心力衰竭诊断和治疗指南2024 - 射血分数保留心衰治疗推荐"
+      ],
+      "top3_sources": [
+        "cn_guide",
+        "cn_guide",
+        "cn_guide"
+      ],
+      "hit_keywords": [
+        "呋塞米",
+        "心衰",
+        "急性",
+        "利尿",
+        "托拉塞米"
+      ]
+    },
+    {
+      "query": "心房颤动的抗凝治疗方案",
+      "category": "atrial_fibrillation",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 1.0,
+      "context_recall": 0.8333,
+      "top1_score": 0.854,
+      "top3_score": 0.843,
+      "top5_score": 0.8227,
+      "source_type_accuracy": 1.0,
+      "evidence_level_match": 1.0,
+      "faithfulness": 0.9208,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 6739.5,
+      "top3_titles": [
+        "心房颤动：目前的认识和治疗建议2021 - 房颤口服抗凝治疗推荐",
+        "中国脑卒中防治指导规范2023 - 心房颤动相关卒中抗凝预防推荐",
+        "中国脑卒中防治指导规范2023 - 心房颤动相关卒中抗凝预防推荐"
+      ],
+      "top3_sources": [
+        "cn_guide",
+        "cn_guide",
+        "cn_guide"
+      ],
+      "hit_keywords": [
+        "抗凝",
+        "房颤",
+        "NOAC",
+        "CHA2DS2",
+        "华法林"
+      ]
+    },
+    {
+      "query": "atrial fibrillation anticoagulation CHA2DS2-VASc",
+      "category": "atrial_fibrillation",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "top1_score": 0.6141,
+      "top3_score": 0.6081,
+      "top5_score": 0.6014,
+      "source_type_accuracy": 0.5,
+      "evidence_level_match": 1.0,
+      "faithfulness": 0.9228,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 10301.1,
+      "top3_titles": [
+        "Hypertrophic Cardiomyopathy and Atrial Fibrillation: A Syste",
+        "[Independent risk factors of atrial thrombosis in patients w",
+        "Anticoagulant in atrial fibrillation patients with prior int"
+      ],
+      "top3_sources": [
+        "pubmed",
+        "cn_eupmc",
+        "pubmed"
+      ],
+      "hit_keywords": [
+        "anticoagulation",
+        "warfarin",
+        "DOAC",
+        "CHA2DS2",
+        "stroke"
+      ]
+    },
+    {
+      "query": "房颤的节律控制与心率控制策略",
+      "category": "atrial_fibrillation",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 1.0,
+      "context_recall": 0.6,
+      "top1_score": 0.8281,
+      "top3_score": 0.7931,
+      "top5_score": 0.7652,
+      "source_type_accuracy": 1.0,
+      "evidence_level_match": 1.0,
+      "faithfulness": 0.8456,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 13478.8,
+      "top3_titles": [
+        "心房颤动：目前的认识和治疗建议2021 - 房颤节律控制策略推荐",
+        "心房颤动：目前的认识和治疗建议2021 - 房颤节律控制策略推荐",
+        "心房颤动：目前的认识和治疗建议2021 - 房颤卒中风险评分推荐"
+      ],
+      "top3_sources": [
+        "cn_guide",
+        "cn_guide",
+        "cn_guide"
+      ],
+      "hit_keywords": [
+        "节律控制",
+        "房颤",
+        "胺碘酮"
+      ]
+    },
+    {
+      "query": "non-valvular atrial fibrillation stroke prevention",
+      "category": "atrial_fibrillation",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 1.0,
+      "context_recall": 0.8,
+      "top1_score": 0.6404,
+      "top3_score": 0.6265,
+      "top5_score": 0.615,
+      "source_type_accuracy": 0.5,
+      "evidence_level_match": 1.0,
+      "faithfulness": 0.8681,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 8654.2,
+      "top3_titles": [
+        "Research progress in atrial fibrillation with cerebral small",
+        "Anticoagulation use in perioperative atrial fibrillation aft",
+        "Direct Oral Anticoagulants for Stroke Prevention in Patients"
+      ],
+      "top3_sources": [
+        "cn_eupmc",
+        "pubmed",
+        "pubmed"
+      ],
+      "hit_keywords": [
+        "anticoagulation",
+        "apixaban",
+        "stroke",
+        "atrial fibrillation"
+      ]
+    },
+    {
+      "query": "高血脂患者他汀类药物的使用原则",
+      "category": "hyperlipidemia",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 1.0,
+      "context_recall": 0.8,
+      "top1_score": 0.8795,
+      "top3_score": 0.8568,
+      "top5_score": 0.8443,
+      "source_type_accuracy": 1.0,
+      "evidence_level_match": 1.0,
+      "faithfulness": 0.9159,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 7445.7,
+      "top3_titles": [
+        "中国成人血脂异常防治指南2023 - 他汀类药物基石地位推荐",
+        "中国成人血脂异常防治指南2023 - 他汀类药物基石地位推荐",
+        "中国心血管病一级预防指南2020 - 血脂异常一级预防他汀治疗推荐"
+      ],
+      "top3_sources": [
+        "cn_guide",
+        "cn_guide",
+        "cn_guide"
+      ],
+      "hit_keywords": [
+        "阿托伐他汀",
+        "瑞舒伐他汀",
+        "他汀",
+        "LDL-C"
+      ]
+    },
+    {
+      "query": "冠心病患者的LDL-C目标值是多少？",
+      "category": "hyperlipidemia",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "top1_score": 0.8714,
+      "top3_score": 0.8195,
+      "top5_score": 0.78,
+      "source_type_accuracy": 1.0,
+      "evidence_level_match": 1.0,
+      "faithfulness": 0.9743,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 7763.5,
+      "top3_titles": [
+        "中国成人血脂异常防治指南2023 - LDL-C目标值分层推荐",
+        "中国成人血脂异常防治指南2023 - LDL-C目标值分层推荐",
+        "中国高血压临床实践指南2024 - 降压治疗目标值推荐"
+      ],
+      "top3_sources": [
+        "cn_guide",
+        "cn_guide",
+        "cn_guide"
+      ],
+      "hit_keywords": [
+        "冠心病",
+        "目标",
+        "1.8",
+        "LDL-C",
+        "1.4",
+        "他汀"
+      ]
+    },
+    {
+      "query": "statin therapy cardiovascular risk reduction LDL",
+      "category": "hyperlipidemia",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "top1_score": 0.6801,
+      "top3_score": 0.6712,
+      "top5_score": 0.6657,
+      "source_type_accuracy": 0.5,
+      "evidence_level_match": 1.0,
+      "faithfulness": 0.936,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 6088.5,
+      "top3_titles": [
+        "Comparative Efficacy of Nonstatin Lipid-Lowering Therapies i",
+        "Cardiovascular Disease in Chronic Kidney Disease",
+        "Statin Treatments And Dosages In Children With Familial Hype"
+      ],
+      "top3_sources": [
+        "pubmed",
+        "pmc_fulltext",
+        "pubmed"
+      ],
+      "hit_keywords": [
+        "rosuvastatin",
+        "cardiovascular",
+        "statin",
+        "LDL",
+        "atorvastatin"
+      ]
+    },
+    {
+      "query": "他汀不耐受怎么办？",
+      "category": "hyperlipidemia",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 0.6,
+      "context_recall": 0.8,
+      "top1_score": 0.789,
+      "top3_score": 0.7527,
+      "top5_score": 0.7302,
+      "source_type_accuracy": 1.0,
+      "evidence_level_match": 1.0,
+      "faithfulness": 0.7778,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 9850.2,
+      "top3_titles": [
+        "中国成人血脂异常防治指南2023 - 他汀类药物基石地位推荐",
+        "中国成人血脂异常防治指南2023 - 他汀类药物基石地位推荐",
+        "中国心血管病一级预防指南2020 - 血脂异常一级预防他汀治疗推荐"
+      ],
+      "top3_sources": [
+        "cn_guide",
+        "cn_guide",
+        "cn_guide"
+      ],
+      "hit_keywords": [
+        "PCSK9",
+        "肌肉",
+        "他汀不耐受",
+        "依折麦布"
+      ]
+    },
+    {
+      "query": "急性脑卒中溶栓时间窗是多少？",
+      "category": "stroke",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 0.8,
+      "context_recall": 0.5,
+      "top1_score": 0.8661,
+      "top3_score": 0.8434,
+      "top5_score": 0.8157,
+      "source_type_accuracy": 1.0,
+      "evidence_level_match": 1.0,
+      "faithfulness": 0.7632,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 7181.7,
+      "top3_titles": [
+        "中国脑卒中防治指导规范2023 - 急性缺血性脑卒中静脉溶栓推荐",
+        "中国脑卒中防治指导规范2023 - 急性缺血性脑卒中静脉溶栓推荐",
+        "中国脑卒中防治指导规范2023 - 急性缺血性脑卒中血压管理推荐"
+      ],
+      "top3_sources": [
+        "cn_guide",
+        "cn_guide",
+        "cn_guide"
+      ],
+      "hit_keywords": [
+        "溶栓",
+        "4.5小时",
+        "rt-PA"
+      ]
+    },
+    {
+      "query": "ischemic stroke acute treatment thrombolysis",
+      "category": "stroke",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 1.0,
+      "context_recall": 0.6,
+      "top1_score": 0.704,
+      "top3_score": 0.6812,
+      "top5_score": 0.6698,
+      "source_type_accuracy": 0.5,
+      "evidence_level_match": 1.0,
+      "faithfulness": 0.8208,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 6635.0,
+      "top3_titles": [
+        "Advances in Ischemic Stroke Treatment: Current and Future Th",
+        "Management of Acute Ischemic Stroke",
+        "[Development of research on mechanisms of acupuncture interv"
+      ],
+      "top3_sources": [
+        "europepmc",
+        "pmc_fulltext",
+        "cn_eupmc"
+      ],
+      "hit_keywords": [
+        "thrombolysis",
+        "tPA",
+        "stroke"
+      ]
+    },
+    {
+      "query": "脑卒中二级预防策略",
+      "category": "stroke",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 1.0,
+      "context_recall": 0.6,
+      "top1_score": 0.7337,
+      "top3_score": 0.7282,
+      "top5_score": 0.722,
+      "source_type_accuracy": 1.0,
+      "evidence_level_match": 1.0,
+      "faithfulness": 0.8267,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 6395.6,
+      "top3_titles": [
+        "中国脑卒中防治指导规范2023 - 心房颤动相关卒中抗凝预防推荐",
+        "中国脑卒中防治指导规范2023 - 心房颤动相关卒中抗凝预防推荐",
+        "中国脑卒中防治指导规范2023 - 急性缺血性脑卒中血压管理推荐"
+      ],
+      "top3_sources": [
+        "cn_guide",
+        "cn_guide",
+        "cn_guide"
+      ],
+      "hit_keywords": [
+        "降压",
+        "抗血小板",
+        "阿司匹林"
+      ]
+    },
+    {
+      "query": "脑卒中后抗血小板药物选择",
+      "category": "stroke",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "top1_score": 0.8548,
+      "top3_score": 0.8408,
+      "top5_score": 0.8221,
+      "source_type_accuracy": 1.0,
+      "evidence_level_match": 1.0,
+      "faithfulness": 0.971,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 7754.3,
+      "top3_titles": [
+        "中国脑卒中防治指导规范2023 - 非心源性缺血性脑卒中抗血小板治疗推荐",
+        "中国脑卒中防治指导规范2023 - 非心源性缺血性脑卒中抗血小板治疗推荐",
+        "中国脑卒中防治指导规范2023 - 心房颤动相关卒中抗凝预防推荐"
+      ],
+      "top3_sources": [
+        "cn_guide",
+        "cn_guide",
+        "cn_guide"
+      ],
+      "hit_keywords": [
+        "双抗",
+        "阿司匹林",
+        "抗血小板",
+        "氯吡格雷",
+        "脑卒中"
+      ]
+    },
+    {
+      "query": "急性冠脉综合征的抗血小板治疗方案",
+      "category": "coronary_heart_disease",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 1.0,
+      "context_recall": 0.6,
+      "top1_score": 0.7661,
+      "top3_score": 0.7538,
+      "top5_score": 0.7346,
+      "source_type_accuracy": 1.0,
+      "evidence_level_match": 1.0,
+      "faithfulness": 0.8332,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 7572.2,
+      "top3_titles": [
+        "中国脑卒中防治指导规范2023 - 非心源性缺血性脑卒中抗血小板治疗推荐",
+        "中国脑卒中防治指导规范2023 - 非心源性缺血性脑卒中抗血小板治疗推荐",
+        "中国脑卒中防治指导规范2023 - 心房颤动相关卒中抗凝预防推荐"
+      ],
+      "top3_sources": [
+        "cn_guide",
+        "cn_guide",
+        "cn_guide"
+      ],
+      "hit_keywords": [
+        "替格瑞洛",
+        "抗血小板",
+        "阿司匹林"
+      ]
+    },
+    {
+      "query": "ST段抬高心肌梗死STEMI的再灌注治疗",
+      "category": "coronary_heart_disease",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 0.2,
+      "context_recall": 0.3333,
+      "top1_score": 0.6579,
+      "top3_score": 0.6531,
+      "top5_score": 0.6471,
+      "source_type_accuracy": 1.0,
+      "evidence_level_match": 1.0,
+      "faithfulness": 0.4916,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 6864.3,
+      "top3_titles": [
+        "中国脑卒中防治指导规范2023 - 心房颤动相关卒中抗凝预防推荐",
+        "中国脑卒中防治指导规范2023 - 非心源性缺血性脑卒中抗血小板治疗推荐",
+        "中国心力衰竭诊断和治疗指南2024 - HFrEF药物治疗新四联推荐"
+      ],
+      "top3_sources": [
+        "cn_guide",
+        "cn_guide",
+        "cn_guide"
+      ],
+      "hit_keywords": [
+        "替格瑞洛",
+        "阿司匹林"
+      ]
+    },
+    {
+      "query": "acute myocardial infarction reperfusion PCI",
+      "category": "coronary_heart_disease",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 1.0,
+      "context_recall": 0.8,
+      "top1_score": 0.5849,
+      "top3_score": 0.5805,
+      "top5_score": 0.5749,
+      "source_type_accuracy": 0.5,
+      "evidence_level_match": 1.0,
+      "faithfulness": 0.857,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 6760.5,
+      "top3_titles": [
+        "[Evaluation of coronary microvascular dysfunction for assess",
+        "[Evaluation of coronary microvascular dysfunction for assess",
+        "Effectiveness and safety of direct oral anticoagulants combi"
+      ],
+      "top3_sources": [
+        "cn_eupmc",
+        "cn_eupmc",
+        "pubmed"
+      ],
+      "hit_keywords": [
+        "primary",
+        "reperfusion",
+        "myocardial infarction",
+        "PCI"
+      ]
+    },
+    {
+      "query": "稳定型冠心病的药物治疗",
+      "category": "coronary_heart_disease",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 1.0,
+      "context_recall": 0.6667,
+      "top1_score": 0.7235,
+      "top3_score": 0.7025,
+      "top5_score": 0.6955,
+      "source_type_accuracy": 1.0,
+      "evidence_level_match": 1.0,
+      "faithfulness": 0.8447,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 7155.5,
+      "top3_titles": [
+        "中国心力衰竭诊断和治疗指南2024 - HFrEF药物治疗新四联推荐",
+        "中国高血压临床实践指南2024 - 联合降压药物治疗推荐",
+        "中国成人血脂异常防治指南2023 - 联合降脂治疗推荐"
+      ],
+      "top3_sources": [
+        "cn_guide",
+        "cn_guide",
+        "cn_guide"
+      ],
+      "hit_keywords": [
+        "冠心病",
+        "β受体阻滞剂",
+        "CCB",
+        "他汀"
+      ]
+    },
+    {
+      "query": "慢性肾脏病CKD合并高血压的降压策略",
+      "category": "chronic_kidney_disease",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "top1_score": 0.8947,
+      "top3_score": 0.7878,
+      "top5_score": 0.7604,
+      "source_type_accuracy": 1.0,
+      "evidence_level_match": 1.0,
+      "faithfulness": 0.9789,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 10096.1,
+      "top3_titles": [
+        "中国慢性肾脏病诊疗指南2021 - CKD合并高血压血压管理推荐",
+        "中国高血压临床实践指南2024 - 启动降压药物治疗时机推荐",
+        "中国高血压临床实践指南2024 - 联合降压药物治疗推荐"
+      ],
+      "top3_sources": [
+        "cn_guide",
+        "cn_guide",
+        "cn_guide"
+      ],
+      "hit_keywords": [
+        "ACEI",
+        "高血压",
+        "降压",
+        "肾功能",
+        "ARB",
+        "CKD"
+      ]
+    },
+    {
+      "query": "CKD合并糖尿病的降糖药选择",
+      "category": "chronic_kidney_disease",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 1.0,
+      "context_recall": 0.8333,
+      "top1_score": 0.7669,
+      "top3_score": 0.7577,
+      "top5_score": 0.7452,
+      "source_type_accuracy": 1.0,
+      "evidence_level_match": 1.0,
+      "faithfulness": 0.9034,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 9100.3,
+      "top3_titles": [
+        "中国慢性肾脏病诊疗指南2021 - CKD合并高血压血压管理推荐",
+        "中国2型糖尿病防治指南2020 - 心血管高危患者降糖药选择推荐",
+        "中国2型糖尿病防治指南2020 - 心血管高危患者降糖药选择推荐"
+      ],
+      "top3_sources": [
+        "cn_guide",
+        "cn_guide",
+        "cn_guide"
+      ],
+      "hit_keywords": [
+        "达格列净",
+        "SGLT2",
+        "肾功能",
+        "CKD",
+        "糖尿病"
+      ]
+    },
+    {
+      "query": "chronic kidney disease anemia management erythropoietin",
+      "category": "chronic_kidney_disease",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 0.4,
+      "context_recall": 0.2,
+      "top1_score": 0.7178,
+      "top3_score": 0.6767,
+      "top5_score": 0.6487,
+      "source_type_accuracy": 0.5,
+      "evidence_level_match": 1.0,
+      "faithfulness": 0.5236,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 7341.6,
+      "top3_titles": [
+        "Correction to: Management and treatment of chronic kidney di",
+        "Correction to: Management and treatment of chronic kidney di",
+        "Erythropoiesis-stimulating agents for anaemia in adults with"
+      ],
+      "top3_sources": [
+        "europepmc",
+        "europepmc",
+        "pubmed"
+      ],
+      "hit_keywords": [
+        "CKD"
+      ]
+    },
+    {
+      "query": "慢性肾病贫血的治疗方案",
+      "category": "chronic_kidney_disease",
+      "retrieval_success": true,
+      "result_count": 8,
+      "context_precision": 0.6,
+      "context_recall": 0.1667,
+      "top1_score": 0.6539,
+      "top3_score": 0.6472,
+      "top5_score": 0.6405,
+      "source_type_accuracy": 1.0,
+      "evidence_level_match": 1.0,
+      "faithfulness": 0.5608,
+      "citation_accuracy": 1.0,
+      "response_time_ms": 11476.7,
+      "top3_titles": [
+        "中国脑卒中防治指导规范2023 - 急性缺血性脑卒中静脉溶栓推荐",
+        "中国慢性肾脏病诊疗指南2021 - CKD合并高血压血压管理推荐",
+        "中国慢性肾脏病诊疗指南2021 - 慢性肾脏病诊断标准推荐"
+      ],
+      "top3_sources": [
+        "cn_guide",
+        "cn_guide",
+        "cn_guide"
+      ],
+      "hit_keywords": [
+        "CKD"
+      ]
+    }
+  ],
+  "v1_comparison": {
+    "v1_metrics": {
+      "pass_rate": 0.2812,
+      "avg_context_precision": 0.5352,
+      "avg_context_recall": 0.6929,
+      "avg_top1_score": 0.8622,
+      "avg_faithfulness": 0.6929,
+      "avg_citation_accuracy": 0.9375
+    },
+    "v2_metrics": {
+      "pass_rate": 0.71875,
+      "avg_context_precision": 0.85625,
+      "avg_context_recall": 0.691071875,
+      "avg_top1_score": 0.76414375,
+      "avg_faithfulness": 0.813903125,
+      "avg_citation_accuracy": 1.0
+    }
+  }
+}
